@@ -460,3 +460,14 @@ p.stop strong { font-weight: 700; }
 .welcome, .confidence, .reviews-strip { clip-path: polygon(0 var(--slope), 100% 0, 100% 100%, 0 100%); }   /* rises to the right */
 .voices { clip-path: polygon(0 0, 100% var(--slope), 100% 100%, 0 100%); }                                   /* rises to the left */
 .confidence { margin-top: calc(var(--slope) * -1); }
+
+/* counter-wedge: a gold wedge at the bottom of each angled section, slanting the opposite way
+   so the pair balances (blue/dark coming one way, gold the other) */
+.welcome, .voices, .confidence, .reviews-strip { padding-bottom: calc(var(--wb, 0px) + var(--slope)); }
+.welcome { --wb: clamp(3.5rem, 9vw, 7rem); } .confidence { --wb: clamp(4rem, 10vw, 7rem); } .voices { --wb: clamp(3rem, 7vw, 5rem); } .reviews-strip { --wb: 1.2rem; }
+.welcome::after, .voices::after, .confidence::after, .reviews-strip::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: var(--slope); background: var(--gold); z-index: 1; pointer-events: none; }
+.welcome::after, .confidence::after, .reviews-strip::after { clip-path: polygon(0 0, 100% 100%, 0 100%); }  /* thick on the left, top rises right→ opposite */
+.voices::after { clip-path: polygon(100% 0, 100% 100%, 0 100%); }
+/* voices is followed by the angled "confidence" band, which overlaps its last wedge-height; lift the gold above that */
+.voices { padding-bottom: calc(var(--wb) + var(--slope) * 2); }
+.voices::after { bottom: var(--slope); }
