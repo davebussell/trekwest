@@ -28,4 +28,4 @@ See the hand-off list in the migration report: email/.com typo fixes already app
 
 ## Deploy record
 - GitHub: github.com/davebussell/trekwest-net
-- Netlify site: (record site ID/URL here after first deploy)
+- Netlify site: trekwest-net, site ID 69498b08-f0dc-49c6-9eb0-e8f373be9128, https://trekwest-net.netlify.app (deployed via Netlify MCP upload; connect the GitHub repo for continuous deploys)
