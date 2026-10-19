@@ -12,7 +12,7 @@ try:
         pg.on('console',lambda m: errs.append(m.text) if m.type=='error' else None)
         pg.on('requestfailed',lambda r: errs.append('FAILED '+r.url))
         for u in pages:
-            pg.goto('http://localhost:8765'+u,wait_until='load'); pg.evaluate('async()=>{for(let y=0;y<document.body.scrollHeight;y+=500){window.scrollTo(0,y);await new Promise(r=>setTimeout(r,60))}window.scrollTo(0,0)}'); pg.wait_for_timeout(600)
+            pg.goto('http://localhost:8765'+u,wait_until='load'); pg.evaluate('async()=>{for(let y=0;y<document.body.scrollHeight;y+=500){window.scrollTo(0,y);await new Promise(r=>setTimeout(r,200))}window.scrollTo(0,0)}'); pg.wait_for_timeout(600)
             ov=pg.evaluate('document.documentElement.scrollWidth - document.documentElement.clientWidth')
             name=(u.strip('/') or 'home')[:40]
             pg.screenshot(path='%s/%s-%s.png'%(out,name,tag),full_page=True)

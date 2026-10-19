@@ -18,7 +18,7 @@ Dependency-free: a Node script assembles pages from partials into `dist/`; Netli
 - `scripts/` — one-off pipeline used for the migration (fetch-assets, optimize-images, extract, convert, make-og, fetch-fonts, shots). Not needed for normal edits.
 
 ## Design
-Italic slant from the logo carried into photo strips, buttons, timeline marks and dividers. Blue/coral/plum from the logo, Aspen-gold booking button. Archivo (expanded, italic headings) + Source Serif 4, self-hosted.
+Home page: full-bleed hero photo, split nav around a centered logo tile, photo-card grid of every tour, welcome band, stats, reviews block, confidence band, blog rows (modelled on westtrek.com's layout). Inner pages: slanted photo strips. Italic slant from the logo carried into photo strips, buttons, timeline marks and dividers. Blue/coral/plum from the logo, Aspen-gold booking button. Archivo (expanded, italic headings) + Source Serif 4, self-hosted.
 
 ## Booking
 FareHarbor (shortname `trekwesttours`). Tour pages link to per-item lightframe URLs; `/book-your-tour/` embeds the item grid (flow 1634484). Floating mobile "Book a tour" bar links to it.

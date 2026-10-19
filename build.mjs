@@ -80,7 +80,7 @@ function render(slug, raw) {
     .replaceAll('{{buildid}}', buildid).replaceAll('{{gsc}}', gsc).replaceAll('{{gaid}}', site.gaId).replaceAll('{{jsonld}}', jsonld);
 
   const isBlog = path.includes('blog') || meta.kind === 'post';
-  const header = P.header.replace(/\{\{cur:([^}]+)\}\}/g, (_, k) => {
+  const header = P.header.replace('{{hclass}}', path === '/' ? ' on-hero' : '').replace(/\{\{cur:([^}]+)\}\}/g, (_, k) => {
     const cur = k === 'group' ? GROUP.has(path) : k === 'private' ? PRIVATE.has(path) && path !== '/private-tour-inquire-about-customized-private-tours/' || false : k === 'blog' ? isBlog : k === path;
     return cur ? ' aria-current="page"' : '';
   });

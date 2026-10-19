@@ -1,7 +1,7 @@
 (function () {
   var t = document.querySelector('.nav-toggle'), n = document.getElementById('nav');
   if (t && n) t.addEventListener('click', function () {
-    var o = n.classList.toggle('open'); t.setAttribute('aria-expanded', o);
+    var o = n.classList.toggle('open'); t.setAttribute('aria-expanded', o); t.querySelector('span:last-child').textContent = o ? 'Close' : 'Menu';
   });
   // YouTube facade: swap the poster for the real player only on click.
   document.querySelectorAll('.video[data-yt]').forEach(function (v) {
@@ -14,6 +14,16 @@
       v.replaceChildren(f);
     });
   });
+  // Home: tour picker jumps straight to the chosen tour; dismissible offer bar.
+  var pick = document.querySelector('[data-jump]');
+  if (pick) pick.addEventListener('change', function () { if (pick.value) location.href = pick.value; });
+  var promo = document.querySelector('[data-promo]');
+  if (promo) {
+    try { if (sessionStorage.getItem('promo-closed')) promo.hidden = true; } catch (e) {}
+    promo.querySelector('[data-promo-close]').addEventListener('click', function () {
+      promo.hidden = true; try { sessionStorage.setItem('promo-closed', '1'); } catch (e) {}
+    });
+  }
   // Respect reduced motion for the hero loop.
   if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) {
     document.querySelectorAll('video[autoplay]').forEach(function (v) { v.pause(); v.removeAttribute('autoplay'); });
