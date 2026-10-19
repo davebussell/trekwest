@@ -14,6 +14,13 @@
       v.replaceChildren(f);
     });
   });
+  // Home: the transparent header becomes a solid white bar once you scroll.
+  var hdr = document.querySelector('.site-header.on-hero');
+  if (hdr) {
+    var upd = function () { hdr.classList.toggle('scrolled', window.scrollY > 40 || (n && n.classList.contains('open'))); };
+    window.addEventListener('scroll', upd, { passive: true }); upd();
+    if (t) t.addEventListener('click', upd);
+  }
   // Home: tour picker jumps straight to the chosen tour; dismissible offer bar.
   var pick = document.querySelector('[data-jump]');
   if (pick) pick.addEventListener('change', function () { if (pick.value) location.href = pick.value; });
