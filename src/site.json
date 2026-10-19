@@ -5,80 +5,236 @@
   "gscVerification": "",
   "defaultOg": "arizona-og",
   "pages": {
-    "/": { "og": "img-2384", "priority": 1.0 },
+    "/": {
+      "og": "img-2384",
+      "priority": 1.0
+    },
     "/grand-canyon-day-tour-from-flagstaff/": {
-      "strips": ["panograndcanyon", "img-1295", "img-2384"], "priority": 0.9, "crumb": "Group tours",
+      "strips": [
+        "panograndcanyon",
+        "img-1295",
+        "img-2384"
+      ],
+      "priority": 0.9,
+      "crumb": "Group tours",
       "desc": "A small-group Grand Canyon day tour from Flagstaff with park fees, a Route 66 café picnic lunch and expert guides. Max 10 guests. Adults $199, children $149."
     },
     "/grand-canyon-day-tour-from-williams/": {
-      "strips": ["img-2895", "img-1529", "img-1344"], "priority": 0.9, "crumb": "Group tours",
+      "strips": [
+        "img-2895",
+        "img-1529",
+        "img-1344"
+      ],
+      "priority": 0.9,
+      "crumb": "Group tours",
       "desc": "Small-group Grand Canyon day tour departing Williams, AZ: South Rim and East Rim stops, park fees and a Route 66 café lunch included. Max 10 guests."
     },
     "/grand-canyon-bike-hike-day-tour/": {
-      "strips": ["kaibabtrailhikinggrandcanyon", "img-3264", "img-3344"], "priority": 0.9, "crumb": "Group tours",
+      "strips": [
+        "kaibabtrailhikinggrandcanyon",
+        "img-3264",
+        "img-3344"
+      ],
+      "priority": 0.9,
+      "crumb": "Group tours",
       "desc": "Ride the South Rim on an e-bike, then hike below it on the South Kaibab Trail. A small-group Grand Canyon bike and hike day tour from Flagstaff or Williams."
     },
     "/grand-canyon-sunset-star-gazing-tour/": {
-      "strips": ["img-2476", "website-vertical", "van2"], "priority": 0.6, "crumb": "Group tours",
+      "strips": [
+        "img-2476",
+        "website-vertical",
+        "van2"
+      ],
+      "priority": 0.6,
+      "crumb": "Group tours",
       "desc": "Golden hour on the South Rim with a charcuterie spread, then stargazing in Northern Arizona's dark skies. A small-group Grand Canyon sunset and star tour."
     },
     "/private-guided-tours-from-flagstaff-williams-grand-canyon/": {
-      "strips": ["img-8449-2", "van2", "img-1468"], "priority": 0.9, "crumb": "Private tours",
+      "strips": [
+        "img-8449-2",
+        "van2",
+        "img-1468"
+      ],
+      "priority": 0.9,
+      "crumb": "Private tours",
       "desc": "A private Grand Canyon day tour for up to 11 guests from Flagstaff or Williams, shaped around your group with a local guide and a customized lunch."
     },
     "/private-tours-grand-canyon-sunset-dark-sky-tour/": {
-      "strips": ["img-2476", "website-vertical", "img-3340"], "priority": 0.9, "crumb": "Private tours",
+      "strips": [
+        "img-2476",
+        "website-vertical",
+        "img-3340"
+      ],
+      "priority": 0.9,
+      "crumb": "Private tours",
       "desc": "A private Grand Canyon sunset and dark-sky tour with a charcuterie spread at the rim, then stargazing on the drive home. Flat-rate pricing for your whole group."
     },
     "/private-tour-guided-day-hikes-in-grand-canyon/": {
-      "strips": ["hikinggrandcanyon", "img-9477", "kaibabtrailhikinggrandcanyon"], "priority": 0.9, "crumb": "Private tours",
+      "strips": [
+        "hikinggrandcanyon",
+        "img-9477",
+        "kaibabtrailhikinggrandcanyon"
+      ],
+      "priority": 0.9,
+      "crumb": "Private tours",
       "desc": "Private guided day hikes at the Grand Canyon, from rim walks to trails below the rim, with a local interpretive guide, gear, snacks and lunch."
     },
     "/grand-canyon-e-bike-and-hike-tour/": {
-      "strips": ["img-4637", "img-3232", "img-3288"], "priority": 0.9, "crumb": "Private tours",
+      "strips": [
+        "img-4637",
+        "img-3232",
+        "img-3288"
+      ],
+      "priority": 0.9,
+      "crumb": "Private tours",
       "desc": "A private Grand Canyon e-bike and hike tour: a 5-mile South Rim ride, a picnic at Ooh Aah Point and a guided descent of the South Kaibab Trail."
     },
     "/private-tour-inquire-about-customized-private-tours/": {
-      "priority": 0.7, "og": "front2",
+      "priority": 0.7,
+      "og": "front2",
       "desc": "Tell us what you have in mind: a family day, a corporate team adventure or a multi-day Arizona excursion. TrekWest will build it or refer you to someone who can."
     },
     "/our-guides-the-trekwest-story/": {
-      "priority": 0.7, "og": "front2",
+      "priority": 0.7,
+      "og": "front2",
       "desc": "Meet Wes and Sarah Neal and guide Tom Weathers: the family behind TrekWest, built on 14 years of running Bright Angel Bicycles at Grand Canyon National Park."
     },
     "/frequently-asked-questions/": {
-      "priority": 0.7, "og": "van2",
+      "priority": 0.7,
+      "og": "van2",
       "desc": "Answers on cancellations, weather, pickups, lunch, park fees, altitude, what to wear and more for TrekWest Grand Canyon tours from Flagstaff and Williams."
     },
     "/international-park-entrance-fees-to-grand-canyon/": {
-      "priority": 0.5, "og": "panograndcanyon",
+      "priority": 0.5,
+      "og": "panograndcanyon",
       "desc": "The 2026 National Park Service surcharge for international visitors at the Grand Canyon, who pays it, and how the America the Beautiful non-resident pass can save money."
     },
     "/book-your-tour/": {
-      "priority": 0.9, "og": "az-adventure",
+      "priority": 0.9,
+      "og": "az-adventure",
       "desc": "Book a TrekWest Grand Canyon day tour online. Choose your tour, pick a date and pay securely through our FareHarbor booking calendar."
     },
     "/contact-us/": {
-      "priority": 0.6, "og": "van2",
+      "priority": 0.6,
+      "og": "van2",
       "desc": "Contact TrekWest Tours at 2404 E Route 66, Flagstaff, AZ. Call 928-814-2432 or send us a message about your Grand Canyon tour."
     },
     "/privacy/": {
-      "priority": 0.2, "og": "van2",
+      "priority": 0.2,
+      "og": "van2",
       "desc": "How TrekWest Tours, a DBA of Neal Ventures LLC, collects, uses and protects your personal information."
     },
     "/grand-canyon-blog/": {
-      "priority": 0.5, "og": "img-7486",
+      "priority": 0.5,
+      "og": "img-7486",
       "desc": "Trail tips, hikes and local guides from the TrekWest team: where to eat and stay in Flagstaff, the Rim-to-River hike and desert water hikes."
     },
     "/trail-mix-trekwest-tours-northern-arizona-blog-newsletter/": {
-      "priority": 0.6, "og": "img-7486",
+      "priority": 0.6,
+      "og": "img-7486",
       "desc": "The Trail Mix: TrekWest's Northern Arizona blog and newsletter, with hiking guides, Flagstaff food tips and Grand Canyon trip planning."
     },
-    "/flagstaff-arizonas-best-day-hikes/": { "priority": 0.6, "og": "img-7486", "desc": "A local's list of Flagstaff's best day hikes, from Humphreys Peak to Fatmans Loop, with difficulty ratings and tips.", "date": "2026-04-06" },
-    "/rim-to-river-day-grand-canyon-day-hike-what-when-how/": { "priority": 0.6, "og": "557674617-10172586905160327-5934717878916674741-n", "desc": "What to know before hiking from the Grand Canyon's South Rim to the Colorado River and back in a day: the climate zones, timing, water and risks.", "date": "2026-04-06" },
-    "/best-places-to-eat-in-flagstaff-arizona/": { "priority": 0.6, "og": "img-5418", "desc": "Ten fun and delicious places to eat in Flagstaff, Arizona, from brunch spots and cafés to artisan pizza, chosen by locals.", "date": "2026-04-03" },
-    "/finding-your-basecamp-where-to-stay-when-visiting-grand-canyon/": { "priority": 0.6, "og": "chatgpt-image-apr-6-2026-09-44-31-am", "desc": "Where to stay when you visit the Grand Canyon: how Flagstaff, Williams, Tusayan and the park itself shape your trip.", "date": "2026-04-06" },
-    "/arizonas-best-water-hikes-a-guide-to-desert-oases/": { "priority": 0.6, "og": "img-0539", "desc": "A guide to Arizona's best water hikes: hidden grottos, turquoise falls and swimming holes in the desert.", "date": "2026-04-06" },
-    "/packing-snacks-for-your-hike-think-like-an-astronaut/": { "priority": 0.6, "og": "chatgpt-image-apr-6-2026-10-33-17-am", "desc": "How to pack hiking snacks like an astronaut: calorie-dense, light and easy to eat at altitude.", "date": "2026-04-06" }
+    "/flagstaff-arizonas-best-day-hikes/": {
+      "priority": 0.6,
+      "og": "img-7486",
+      "desc": "A local's list of Flagstaff's best day hikes, from Humphreys Peak to Fatmans Loop, with difficulty ratings and tips.",
+      "date": "2026-04-06"
+    },
+    "/rim-to-river-day-grand-canyon-day-hike-what-when-how/": {
+      "priority": 0.6,
+      "og": "557674617-10172586905160327-5934717878916674741-n",
+      "desc": "What to know before hiking from the Grand Canyon's South Rim to the Colorado River and back in a day: the climate zones, timing, water and risks.",
+      "date": "2026-04-06"
+    },
+    "/best-places-to-eat-in-flagstaff-arizona/": {
+      "priority": 0.6,
+      "og": "img-5418",
+      "desc": "Ten fun and delicious places to eat in Flagstaff, Arizona, from brunch spots and cafés to artisan pizza, chosen by locals.",
+      "date": "2026-04-03"
+    },
+    "/finding-your-basecamp-where-to-stay-when-visiting-grand-canyon/": {
+      "priority": 0.6,
+      "og": "chatgpt-image-apr-6-2026-09-44-31-am",
+      "desc": "Where to stay when you visit the Grand Canyon: how Flagstaff, Williams, Tusayan and the park itself shape your trip.",
+      "date": "2026-04-06"
+    },
+    "/arizonas-best-water-hikes-a-guide-to-desert-oases/": {
+      "priority": 0.6,
+      "og": "img-0539",
+      "desc": "A guide to Arizona's best water hikes: hidden grottos, turquoise falls and swimming holes in the desert.",
+      "date": "2026-04-06"
+    },
+    "/packing-snacks-for-your-hike-think-like-an-astronaut/": {
+      "priority": 0.6,
+      "og": "chatgpt-image-apr-6-2026-10-33-17-am",
+      "desc": "How to pack hiking snacks like an astronaut: calorie-dense, light and easy to eat at altitude.",
+      "date": "2026-04-06"
+    },
+    "/waterholes-canyon-by-kayak-from-lees-ferry/": {
+      "priority": 0.5,
+      "og": "556626191-10172586905765327-6579119463710531093-n",
+      "desc": "How to reach Waterholes Canyon, a sandstone slot canyon near Lee’s Ferry that you can only get to by kayak, plus safety tips for flash floods.",
+      "date": "2026-10-19"
+    },
+    "/old-caves-crater-flagstaff-volcano-hike/": {
+      "priority": 0.5,
+      "og": "img-2353-2",
+      "desc": "A free 2.5 to 3.5 mile hike up an extinct cinder cone to Sinagua cave dwellings, 15 minutes from downtown Flagstaff. Trail facts and directions.",
+      "date": "2026-10-18"
+    },
+    "/sycamore-canyon-parsons-trail-hike/": {
+      "priority": 0.5,
+      "og": "34b2c517-33c5-4097-a5c5-ef282bf2ffaf",
+      "desc": "Parsons Trail #144 in Sycamore Canyon near Clarkdale: distance, difficulty, directions and local tips for a quieter red rock hike.",
+      "date": "2026-10-17"
+    },
+    "/camp-verde-day-trip-from-flagstaff/": {
+      "priority": 0.5,
+      "og": "17fd6c51-5c45-47d7-a462-71fbeca8c748",
+      "desc": "Kayaking, pecan orchards, wine, antiquing, Montezuma Castle and more: a stop-by-stop day trip guide to Camp Verde, Arizona.",
+      "date": "2026-10-16"
+    },
+    "/fossil-creek-arizona-waterfall-guide/": {
+      "priority": 0.5,
+      "og": "img-0382",
+      "desc": "Directions, permits, road conditions and safety tips for Fossil Creek, one of Arizona’s best swimming holes. Know before you go.",
+      "date": "2026-10-13"
+    },
+    "/kayak-horseshoe-bend-from-lees-ferry/": {
+      "priority": 0.5,
+      "og": "horseshoebend",
+      "desc": "How to paddle the Colorado River around Horseshoe Bend from Lee’s Ferry with a motorboat backhaul, which outfitters to call, and what to bring.",
+      "date": "2026-10-12"
+    },
+    "/glen-canyon-dam-overlook-page-arizona/": {
+      "priority": 0.5,
+      "og": "img-2895",
+      "desc": "A short sandstone-step walk to a river view of Glen Canyon Dam. Address, trail length and photo tips for the overlook in Page, Arizona.",
+      "date": "2026-10-11"
+    },
+    "/best-places-to-see-fall-leaves-in-flagstaff/": {
+      "priority": 0.5,
+      "og": "img-7486",
+      "desc": "Five places to see fall color around Flagstaff, from downtown streets to Snowbowl Road and Schultz Pass, with crowd and driving tips.",
+      "date": "2026-10-09"
+    },
+    "/where-locals-love-to-eat-in-flagstaff-sosta-and-macys/": {
+      "priority": 0.5,
+      "og": "chatgpt-image-apr-6-2026-09-44-31-am",
+      "desc": "Two Flagstaff favorites from our guides’ “Places Locals Love to Eat” series: Sosta downtown and the long-running, vegetarian Macy’s.",
+      "date": "2026-10-01"
+    },
+    "/why-book-a-grand-canyon-sunset-tour/": {
+      "priority": 0.5,
+      "og": "img-2455",
+      "desc": "Many visitors find the Grand Canyon underwhelming at midday. Golden hour is why the photos look the way they do. Here is why we recommend a sunset tour.",
+      "date": "2026-09-28"
+    },
+    "/private-grand-canyon-tour-east-rim-volcanoes-and-wupatki/": {
+      "priority": 0.5,
+      "og": "img-2384",
+      "desc": "One of the biggest perks of a private tour is rewriting the itinerary. A recent day: Sunset Crater, Wupatki, Cameron Trading Post and the East Rim.",
+      "date": "2026-09-28"
+    }
   }
 }

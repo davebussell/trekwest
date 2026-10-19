@@ -415,3 +415,5 @@ p.stop strong { font-weight: 700; }
 @media (max-width: 40rem) { .prow, .prow:nth-child(even) { grid-template-columns: 1fr; gap: .8rem; margin-bottom: 0; } .prow:nth-child(even) .pi { order: 0; } }
 .blogrows .cta { text-align: center; }
 .videoband { padding-top: 0; } .videoband h2 { margin-top: 0; text-align: center; } .videoband .video { max-width: 52rem; margin: 0 auto; }
+
+.site-footer .social li { margin: 0 0 .5rem; } .site-footer .social a { display: inline-flex; align-items: center; gap: .6rem; text-decoration: none; font-weight: 600; } .site-footer .social svg { flex: none; }

@@ -29,3 +29,7 @@ See the hand-off list in the migration report: email/.com typo fixes already app
 ## Deploy record
 - GitHub: github.com/davebussell/trekwest-net
 - Netlify site: trekwest-net, site ID 69498b08-f0dc-49c6-9eb0-e8f373be9128, https://trekwest-net.netlify.app (deployed via Netlify MCP upload; connect the GitHub repo for continuous deploys)
+
+## Social + Instagram articles
+- Footer "Follow us" and JSON-LD `sameAs`: Instagram @trekwesttours, YouTube @TrekWestToursofArizona, Tripadvisor. No Facebook/TikTok page for TrekWest Arizona was found (the "TrekWest Tours" Facebook page is an unrelated Irish company).
+- `scripts/add-instagram-posts.py` generated 11 articles from the detailed @trekwesttours Reels (short/off-topic posts skipped) and added them to both blog indexes. Photos are reused from the site's own library.

@@ -69,7 +69,7 @@ function render(slug, raw) {
       url: site.url + '/', telephone: '+1-928-814-2432', email: 'info@trekwest.net', logo: site.url + '/icon-192.png',
       image: site.url + '/og/home.jpg',
       address: { '@type': 'PostalAddress', streetAddress: '2404 E Route 66', addressLocality: 'Flagstaff', addressRegion: 'AZ', postalCode: '86004', addressCountry: 'US' },
-      sameAs: ['https://www.tripadvisor.com/Attraction_Review-g60971-d6623125-Reviews-TrekWest_Tours_of_Arizona-Flagstaff_Arizona.html'],
+      sameAs: ['https://www.instagram.com/trekwesttours/', 'https://www.youtube.com/@TrekWestToursofArizona', 'https://www.tripadvisor.com/Attraction_Review-g60971-d6623125-Reviews-TrekWest_Tours_of_Arizona-Flagstaff_Arizona.html'],
     }) + '</script>';
   }
   const gsc = site.gscVerification ? `<meta name="google-site-verification" content="${esc(site.gscVerification)}">` : '';
