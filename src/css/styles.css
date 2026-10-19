@@ -448,3 +448,15 @@ p.stop strong { font-weight: 700; }
 }
 /* reviews strip: same blue as the image so it reads as one band */
 .reviews-strip { background: #1e4764; padding: 1.2rem 0; }
+
+/* angled section tops: only the TOP edge is cut, and the section pulls up over the
+   previous one's bottom padding, so the previous section's own colour fills the wedge
+   (no slivers, nothing left behind showing the page background) */
+:root { --slope: clamp(1.4rem, 3.6vw, 3.2rem); }
+.welcome, .voices, .confidence, .reviews-strip { position: relative; margin-top: calc(var(--slope) * -1); }
+.welcome, .confidence { padding-top: calc(clamp(3.5rem, 9vw, 7rem) + var(--slope)); }
+.voices { padding-top: calc(clamp(3rem, 7vw, 5rem) + var(--slope)); }
+.reviews-strip { padding-top: calc(1.2rem + var(--slope)); }
+.welcome, .confidence, .reviews-strip { clip-path: polygon(0 var(--slope), 100% 0, 100% 100%, 0 100%); }   /* rises to the right */
+.voices { clip-path: polygon(0 0, 100% var(--slope), 100% 100%, 0 100%); }                                   /* rises to the left */
+.confidence { margin-top: calc(var(--slope) * -1); }
