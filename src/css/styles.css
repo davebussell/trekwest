@@ -299,7 +299,7 @@ p.stop strong { font-weight: 700; }
 
 /* ---------- home ---------- */
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-.hero-full { position: relative; min-height: min(94svh, 58rem); display: grid; align-items: end; color: #fff; background: var(--night); isolation: isolate; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2.2rem), 0 100%); }
+.hero-full { position: relative; min-height: min(94svh, 58rem); display: grid; align-items: end; color: #fff; background: var(--night); isolation: isolate; }
 .hero-full > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 38%; z-index: -2; }
 .hero-full::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(8,16,26,.3) 0%, rgba(8,16,26,.08) 30%, rgba(8,16,26,.35) 62%, rgba(8,16,26,.82) 100%); }
 .hero-copy { max-width: 62rem; margin: 0 auto; padding: 9rem var(--gutter) clamp(4.5rem, 9vw, 6.5rem); text-align: center; }
@@ -312,7 +312,7 @@ p.stop strong { font-weight: 700; }
 .finder .go:hover { background: var(--coral); }
 .hero-full .btn { padding-block: 1.1rem; }
 
-.promo { background: var(--gold); color: var(--ink); text-align: center; font: 600 .98rem var(--font-ui); padding: .85rem 3.2rem; position: relative; margin-top: -1.4rem; }
+.promo { background: var(--gold); color: var(--ink); text-align: center; font: 600 .98rem var(--font-ui); padding: .85rem 3.2rem; position: relative; }
 .promo p { margin: 0; }
 .promo a { color: var(--ink); font-weight: 800; }
 .promo button { position: absolute; right: .6rem; top: 50%; transform: translateY(-50%); background: none; border: 0; font-size: 1.6rem; line-height: 1; cursor: pointer; color: var(--ink); padding: .4rem .7rem; }
@@ -373,7 +373,7 @@ p.stop strong { font-weight: 700; }
 @media (max-width: 52rem) { .stats ul { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 30rem) { .stats li { padding-left: .8rem; } .stats b { font-size: 2.3rem; } }
 
-.voices { background: var(--blue-deep); color: #fff; padding: clamp(3rem, 7vw, 5rem) 0; clip-path: polygon(0 0, 100% 2rem, 100% 100%, 0 calc(100% - 2rem)); margin: -1rem 0; }
+.voices { background: var(--blue-deep); color: #fff; padding: clamp(3rem, 7vw, 5rem) 0; }
 .voices .in { max-width: var(--max); margin: 0 auto; padding: 2rem var(--gutter); text-align: center; }
 .voices h2 { color: #fff; margin: 0 0 .2em; }
 .voices .sub { font: 600 1rem var(--font-ui); color: #ffd98c; margin-bottom: 2rem; }
