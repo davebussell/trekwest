@@ -89,12 +89,39 @@ function render(slug, raw) {
     .replace('{{bookbar}}', meta.nobookbar || noindex ? '' : '<a class="bookbar" href="/book-your-tour/">Book a tour</a>')
     .replace('{{extrascripts}}', hasFH ? '<script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes" defer></script>' : '');
   const html = head + header + h + footer;
-  out.push({ path, html, noindex, priority: cfg.priority ?? 0.5, file: slug === '404' ? '404.html' : (path === '/' ? 'index.html' : path.slice(1) + 'index.html') });
+  out.push({ kind: meta.kind, date: cfg.date || '2026-04-01', title: meta.h1 || title, path, html, noindex, priority: cfg.priority ?? 0.5, file: slug === '404' ? '404.html' : (path === '/' ? 'index.html' : path.slice(1) + 'index.html') });
 }
 
 for (const f of readdirSync(pagesDir).filter((f) => f.endsWith('.html')).sort()) {
   render(f.replace(/\.html$/, ''), readFileSync(join(pagesDir, f), 'utf8'));
 }
+
+
+// ---- recent posts strip (inner pages) ----
+const NORECENT = new Set(['/', '/404/', '/thanks/', '/grand-canyon-blog/', '/trail-mix-trekwest-tours-northern-arizona-blog-newsletter/', '/book-your-tour/', '/private-tour-inquire-about-customized-private-tours/']);
+const postsNewest = out.filter((o) => o.kind === 'post').sort((a, b) => b.date.localeCompare(a.date) || a.path.localeCompare(b.path));
+function recents(selfPath) {
+  const items = postsNewest.filter((p) => p.path !== selfPath).slice(0, 3);
+  const cards = items.map((p) => {
+    const slug = (site.pages[p.path] || {}).og; const m = slug && man[slug]; if (!m) return '';
+    const fs = [...m.files].sort((x, y) => x[0] - y[0]);
+    return `<article class="post-card"><a href="${p.path}"><img src="/img/${fs[fs.length - 1][1]}" srcset="${fs.map(([w, n]) => `/img/${n} ${w}w`).join(', ')}" sizes="(min-width:52rem) 30vw, 92vw" width="${m.w}" height="${m.h}" alt="" loading="lazy" decoding="async"><h3>${esc(p.title)}</h3></a></article>`;
+  }).join('');
+  return `<section class="band recents" aria-label="Recent posts"><div class="wrap"><h2>Latest from Trail Mix</h2><div class="posts">${cards}</div><p class="more"><a class="arrow" href="/trail-mix-trekwest-tours-northern-arizona-blog-newsletter/">All posts</a><a href="https://www.instagram.com/trekwesttours/" target="_blank" rel="noopener me">Follow @trekwesttours on Instagram</a></p></div></section>`;
+}
+
+// home Trail Mix rows: newest 3 posts
+{
+  const home = out.find((o) => o.path === '/');
+  const fmt = (iso) => new Date(iso + 'T12:00:00Z').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+  const rows = postsNewest.slice(0, 3).map((p, i) => {
+    const cfg = site.pages[p.path] || {}; const m = man[cfg.og]; if (!m) return '';
+    const fs = [...m.files].sort((x, y) => x[0] - y[0]);
+    return `<a class="prow" href="${p.path}"><span class="pi"><img src="/img/${fs[fs.length - 1][1]}" srcset="${fs.map(([w, n]) => `/img/${n} ${w}w`).join(', ')}" sizes="(min-width:52rem) 50vw, 100vw" width="${m.w}" height="${m.h}" alt="" loading="lazy" decoding="async"></span><span class="pt"><span class="meta">${fmt(p.date)}</span><strong>${esc(p.title)}</strong><span>${esc(cfg.desc || '')}</span><span class="read">Read the post</span></span></a>`;
+  }).join('');
+  home.html = home.html.replace(/<div class="plist">[\s\S]*?<\/div>(?=\s*<\/div>\s*<\/section>)/, `<div class="plist">${rows}</div>`);
+}
+for (const o of out) { if (NORECENT.has(o.path) || o.noindex) continue; o.html = o.html.replace('</main>', recents(o.path) + '\n</main>'); }
 
 // ---- write ----
 rmSync(dist, { recursive: true, force: true });

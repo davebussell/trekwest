@@ -417,3 +417,20 @@ p.stop strong { font-weight: 700; }
 .videoband { padding-top: 0; } .videoband h2 { margin-top: 0; text-align: center; } .videoband .video { max-width: 52rem; margin: 0 auto; }
 
 .site-footer .social li { margin: 0 0 .5rem; } .site-footer .social a { display: inline-flex; align-items: center; gap: .6rem; text-decoration: none; font-weight: 600; } .site-footer .social svg { flex: none; }
+
+/* header social icons */
+.nav .soc { display: flex; align-items: center; gap: .1rem; margin-left: .3rem; }
+.nav .soc a { display: inline-flex; align-items: center; gap: .5rem; padding: .6rem .5rem; }
+.nav .soc span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.on-hero .nav .soc a, .on-hero.scrolled .nav .soc a { color: var(--ink); }
+.nav .soc a:hover { color: var(--coral); }
+@media (max-width: 62rem) { .nav .soc { margin: .6rem 0 0; gap: 1.4rem; } .nav .soc a { padding: .6rem 0; border: 0; } .nav .soc span { position: static; width: auto; height: auto; clip: auto; font-size: .95rem; } }
+@media (min-width: 62.01rem) and (max-width: 80rem) { .nav .soc { display: none; } }
+.nav .btn { white-space: nowrap; }
+/* recent posts strip */
+.recents { padding: clamp(2rem, 5vw, 3.5rem) 0; border-top: 1px solid var(--line); }
+.recents .wrap > h2 { margin-top: 0; }
+.recents .more { margin-top: 1.4rem; font-family: var(--font-ui); display: flex; flex-wrap: wrap; gap: .6rem 1.6rem; align-items: center; }
+.recents .post-card h3 { font: 800 1.05rem/1.2 var(--font-display); font-stretch: 118%; font-style: italic; margin: 0 0 .3rem; }
+.recents .post-card:hover h3 { color: var(--coral); }
+@media (max-width: 52rem) { .recents .posts { grid-template-columns: 1fr; } }

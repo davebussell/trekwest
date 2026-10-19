@@ -33,3 +33,6 @@ See the hand-off list in the migration report: email/.com typo fixes already app
 ## Social + Instagram articles
 - Footer "Follow us" and JSON-LD `sameAs`: Instagram @trekwesttours, YouTube @TrekWestToursofArizona, Tripadvisor. No Facebook/TikTok page for TrekWest Arizona was found (the "TrekWest Tours" Facebook page is an unrelated Irish company).
 - `scripts/add-instagram-posts.py` generated 11 articles from the detailed @trekwesttours Reels (short/off-topic posts skipped) and added them to both blog indexes. Photos are reused from the site's own library.
+- Header has social icons (Instagram, YouTube, Tripadvisor) in the right nav (hidden 62-80rem wide; always in the mobile menu and footer).
+- `build.mjs` adds a "Latest from Trail Mix" strip (3 newest posts, by `date` in site.json) to inner pages and fills the home Trail Mix rows from the same list. New posts only need a page fragment + a `date`/`og` entry in site.json.
+- "Book with confidence" band photo is a placeholder from Unsplash (`grand-canyon-unsplash`, photo-1615551043360-33de8b5f410c) until TrekWest supplies its own.

@@ -1186,5 +1186,20 @@
    ]
   ],
   "src": "2026__10__IMG_8449-2.jpg"
+ },
+ "grand-canyon-unsplash": {
+  "src": "unsplash-photo-1615551043360-33de8b5f410c.jpg",
+  "w": 1920,
+  "h": 1272,
+  "files": [
+   [
+    800,
+    "grand-canyon-unsplash-800.webp"
+   ],
+   [
+    1600,
+    "grand-canyon-unsplash-1600.webp"
+   ]
+  ]
  }
 }
