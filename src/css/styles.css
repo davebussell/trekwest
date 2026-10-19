@@ -434,3 +434,17 @@ p.stop strong { font-weight: 700; }
 .recents .post-card h3 { font: 800 1.05rem/1.2 var(--font-display); font-stretch: 118%; font-style: italic; margin: 0 0 .3rem; }
 .recents .post-card:hover h3 { color: var(--coral); }
 @media (max-width: 52rem) { .recents .posts { grid-template-columns: 1fr; } }
+
+/* hero: button + finder read as one joined, parallel-slanted bar */
+.hero-actions { --hc: 1.1rem; gap: 0; filter: drop-shadow(0 6px 14px rgba(0,0,0,.3)); }
+.hero-full .btn { height: 3.6rem; padding: 0 2.2rem 0 2.4rem; display: inline-flex; align-items: center; box-shadow: none; clip-path: polygon(var(--hc) 0, 100% 0, calc(100% - var(--hc)) 100%, 0 100%); }
+.finder { height: 3.6rem; box-shadow: none; background: #fff; min-width: min(100%, 22rem); margin-left: calc(var(--hc) * -1 + .3rem); clip-path: polygon(var(--hc) 0, 100% 0, calc(100% - var(--hc)) 100%, 0 100%); }
+.finder select { height: 100%; padding-left: calc(var(--hc) + .9rem); }
+.finder .go { width: 4.2rem; padding-right: var(--hc); }
+@media (max-width: 40rem) {
+  .hero-actions { flex-direction: column; gap: .7rem; width: 100%; }
+  .hero-full .btn { width: min(100%, 22rem); justify-content: center; }
+  .finder { margin-left: 0; width: min(100%, 22rem); }
+}
+/* reviews strip: same blue as the image so it reads as one band */
+.reviews-strip { background: #1e4764; padding: 1.2rem 0; }
