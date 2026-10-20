@@ -17,6 +17,15 @@ const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/"/g, '&quot;'
 const GROUP = new Set(['/grand-canyon-day-tour-from-flagstaff/', '/grand-canyon-day-tour-from-williams/', '/grand-canyon-bike-hike-day-tour/', '/grand-canyon-sunset-star-gazing-tour/']);
 const PRIVATE = new Set(['/private-guided-tours-from-flagstaff-williams-grand-canyon/', '/private-tours-grand-canyon-sunset-dark-sky-tour/', '/private-tour-guided-day-hikes-in-grand-canyon/', '/grand-canyon-e-bike-and-hike-tour/', '/private-tour-inquire-about-customized-private-tours/']);
 
+const TOURS = {
+  '/grand-canyon-day-tour-from-flagstaff/': { price: 199, type: 'Small-group guided day tour' },
+  '/grand-canyon-day-tour-from-williams/': { price: 189, type: 'Small-group guided day tour' },
+  '/grand-canyon-bike-hike-day-tour/': { price: 269, type: 'Small-group e-bike and hike day tour' },
+  '/private-tours-grand-canyon-sunset-dark-sky-tour/': { price: 899, from: true, type: 'Private sunset and dark-sky tour' },
+  '/private-tour-guided-day-hikes-in-grand-canyon/': { price: 999, from: true, type: 'Private guided day hike' },
+  '/grand-canyon-e-bike-and-hike-tour/': { price: 1100, from: true, type: 'Private e-bike and hike tour' },
+};
+
 function img(slug, sizes, eager = false) {
   const m = man[slug]; if (!m) throw new Error('missing image ' + slug);
   const fs = [...m.files].sort((a, b) => a[0] - b[0]);
@@ -32,7 +41,9 @@ function render(slug, raw) {
   const meta = JSON.parse(mm[1]); let body = raw.slice(mm[0].length);
   const path = slug === 'home' ? '/' : `/${slug}/`;
   const cfg = site.pages[path] || {};
-  const title = meta.title;
+  const BRAND = 'TrekWest Arizona Adventure Tours';
+  const baseTitle = String(meta.title).replace(/ - TrekWest Arizona Adventure Tours( page)?$/, '').replace(/&amp;/g, '&');
+  const title = cfg.title || (meta.title.includes(BRAND) ? (baseTitle.length + 11 <= 60 ? baseTitle + ' | TrekWest' : baseTitle) : meta.title);
   const desc = cfg.desc || meta.desc || '';
   const noindex = !!meta.noindex;
   let h = '';
@@ -62,22 +73,36 @@ function render(slug, raw) {
   const canonical = site.url + path;
   const ogslug = cfg.og || (cfg.strips && cfg.strips[0]) || null;
   const ogimage = `${site.url}/og/${path === '/' || !ogslug ? 'home' : ogslug}.jpg`;
-  let jsonld = '';
+  const abs = (u) => (u.startsWith('http') ? u : site.url + u);
+  const ORG = { '@type': 'TravelAgency', '@id': site.url + '/#business', name: 'TrekWest Arizona Adventure Tours', url: site.url + '/', telephone: '+1-928-814-2432', email: 'info@trekwest.net', logo: site.url + '/icon-192.png', image: site.url + '/og/home.jpg', priceRange: '$$$',
+    address: { '@type': 'PostalAddress', streetAddress: '2404 E Route 66', addressLocality: 'Flagstaff', addressRegion: 'AZ', postalCode: '86004', addressCountry: 'US' },
+    areaServed: ['Flagstaff, AZ', 'Williams, AZ', 'Tusayan, AZ', 'Grand Canyon National Park'],
+    sameAs: ['https://www.instagram.com/trekwesttours/', 'https://www.youtube.com/@TrekWestToursofArizona', 'https://www.tripadvisor.com/Attraction_Review-g60971-d6623125-Reviews-TrekWest_Tours_of_Arizona-Flagstaff_Arizona.html'] };
+  const graph = [];
   if (meta.jsonld === 'home') {
-    jsonld = '<script type="application/ld+json">' + JSON.stringify({
-      '@context': 'https://schema.org', '@type': 'TravelAgency', name: 'TrekWest Arizona Adventure Tours',
-      url: site.url + '/', telephone: '+1-928-814-2432', email: 'info@trekwest.net', logo: site.url + '/icon-192.png',
-      image: site.url + '/og/home.jpg',
-      address: { '@type': 'PostalAddress', streetAddress: '2404 E Route 66', addressLocality: 'Flagstaff', addressRegion: 'AZ', postalCode: '86004', addressCountry: 'US' },
-      sameAs: ['https://www.instagram.com/trekwesttours/', 'https://www.youtube.com/@TrekWestToursofArizona', 'https://www.tripadvisor.com/Attraction_Review-g60971-d6623125-Reviews-TrekWest_Tours_of_Arizona-Flagstaff_Arizona.html'],
-    }) + '</script>';
+    graph.push(ORG, { '@type': 'WebSite', '@id': site.url + '/#website', url: site.url + '/', name: 'TrekWest Arizona Adventure Tours', publisher: { '@id': site.url + '/#business' }, inLanguage: 'en-US' });
+  } else if (!noindex) {
+    const crumbs = [{ name: 'Home', url: site.url + '/' }];
+    if (meta.kind === 'post') crumbs.push({ name: 'Trail Mix blog', url: site.url + '/trail-mix-trekwest-tours-northern-arizona-blog-newsletter/' });
+    crumbs.push({ name: meta.h1 || baseTitle, url: canonical });
+    graph.push({ '@type': 'BreadcrumbList', itemListElement: crumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: c.url })) });
+    const pageImg = ogimage;
+    if (meta.kind === 'post') {
+      graph.push({ '@type': 'BlogPosting', headline: meta.h1, description: desc, image: [pageImg], mainEntityOfPage: canonical, datePublished: cfg.date || '2026-04-01', dateModified: cfg.date || '2026-04-01', author: { '@type': 'Organization', name: 'TrekWest Tours', url: site.url + '/' }, publisher: { '@type': 'Organization', name: 'TrekWest Arizona Adventure Tours', logo: { '@type': 'ImageObject', url: site.url + '/icon-192.png' } } });
+    } else if (meta.kind === 'tour' && TOURS[path]) {
+      const t = TOURS[path];
+      const offer = t.from ? { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: t.price, offerCount: 1, availability: 'https://schema.org/InStock', url: canonical } : { '@type': 'Offer', priceCurrency: 'USD', price: t.price, availability: 'https://schema.org/InStock', url: canonical };
+      graph.push({ '@type': 'TouristTrip', name: meta.h1, description: desc, image: [pageImg], url: canonical, touristType: t.type, provider: { '@id': site.url + '/#business' }, offers: offer });
+    }
   }
+  const jsonld = graph.length ? '<script type="application/ld+json">' + JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }) + '</script>' : '';
   const gsc = site.gscVerification ? `<meta name="google-site-verification" content="${esc(site.gscVerification)}">` : '';
   let head = P.head
     .replaceAll('{{title}}', esc(title)).replaceAll('{{description}}', esc(desc))
     .replaceAll('{{canonical}}', canonical).replaceAll('{{robots}}', noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large')
     .replaceAll('{{ogtype}}', meta.kind === 'post' ? 'article' : 'website').replaceAll('{{ogimage}}', ogimage)
-    .replaceAll('{{buildid}}', buildid).replaceAll('{{gsc}}', gsc).replaceAll('{{gaid}}', site.gaId).replaceAll('{{jsonld}}', jsonld);
+    .replaceAll('{{buildid}}', buildid).replaceAll('{{gsc}}', gsc).replaceAll('{{gaid}}', site.gaId).replaceAll('{{jsonld}}', jsonld)
+    .replaceAll('{{ogalt}}', esc(cfg.ogalt || meta.h1 || BRAND)).replaceAll('{{extra}}', meta.kind === 'post' ? `<meta property="article:published_time" content="${cfg.date || '2026-04-01'}"><meta property="article:author" content="TrekWest Tours"><meta property="article:section" content="Northern Arizona travel">` : '');
 
   const isBlog = path.includes('blog') || meta.kind === 'post';
   const header = P.header.replace('{{hclass}}', path === '/' ? ' on-hero' : '').replace(/\{\{cur:([^}]+)\}\}/g, (_, k) => {
@@ -88,7 +113,12 @@ function render(slug, raw) {
   const footer = P.footer.replace('{{year}}', year)
     .replace('{{bookbar}}', meta.nobookbar || noindex ? '' : '<a class="bookbar" href="/book-your-tour/">Book a tour</a>')
     .replace('{{extrascripts}}', hasFH ? '<script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes" defer></script>' : '');
-  const html = head + header + h + footer;
+  let html = head + header + h + footer;
+  html = html.replace(/<img\b[^>]*>/g, (tag) => {
+    if (!tag.includes('alt=""')) return tag;
+    const m = tag.match(/src="\/img\/(.+?)-\d+\.webp"/); const a = m && (site.alts || {})[m[1]];
+    return a ? tag.replace('alt=""', `alt="${esc(a)}"`) : tag;
+  });
   out.push({ kind: meta.kind, date: cfg.date || '2026-04-01', title: meta.h1 || title, path, html, noindex, priority: cfg.priority ?? 0.5, file: slug === '404' ? '404.html' : (path === '/' ? 'index.html' : path.slice(1) + 'index.html') });
 }
 
@@ -121,7 +151,8 @@ function recents(selfPath) {
   }).join('');
   home.html = home.html.replace(/<div class="plist">[\s\S]*?<\/div>(?=\s*<\/div>\s*<\/section>)/, `<div class="plist">${rows}</div>`);
 }
-for (const o of out) { if (NORECENT.has(o.path) || o.noindex) continue; o.html = o.html.replace('</main>', recents(o.path) + '\n</main>'); }
+const CTA = `<section class="band cta-band" aria-label="Book a tour"><div class="wrap"><div><h2>Want to see it with a local guide?</h2><p>Small groups, no more than 10 guests, park fees and lunch included on our day tours. Book online or ask us anything.</p></div><div class="cta-actions"><a class="btn" href="/book-your-tour/">Book a tour</a><a class="btn-ghost" href="/contact-us/">Ask a question</a></div></div></section>`;
+for (const o of out) { if (NORECENT.has(o.path) || o.noindex) continue; o.html = o.html.replace('</main>', (o.kind === 'post' ? CTA : '') + recents(o.path) + '\n</main>'); }
 
 // ---- write ----
 rmSync(dist, { recursive: true, force: true });
@@ -133,7 +164,7 @@ for (const o of out) {
   for (const m of o.html.matchAll(/\/(img|og|video)\/[^\s"',)]+/g)) used.add(m[0]);
   for (const m of o.html.matchAll(/href="(\/[^"#?]*)/g)) {
     const u = m[1];
-    if (/\.(jpg|png|ico|webp|css|js|xml|txt|woff2)$/.test(u) || u.startsWith('/img/')) continue;
+    if (/\.(jpg|png|ico|webp|css|js|xml|txt|woff2|webmanifest)$/.test(u) || u.startsWith('/img/')) continue;
     if (!known.has(u)) { console.warn(`  ! ${o.path} links to unknown ${u}`); warn++; }
   }
 }
@@ -152,8 +183,11 @@ for (const o of out) for (const m of o.html.matchAll(/https:\/\/trekwest\.net(\/
 }
 
 const urls = out.filter((o) => !o.noindex).sort((a, b) => b.priority - a.priority || a.path.localeCompare(b.path));
-writeFileSync(join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((o) => `  <url><loc>${site.url}${o.path}</loc><lastmod>${today}</lastmod><priority>${o.priority.toFixed(1)}</priority></url>`).join('\n')}\n</urlset>\n`);
+writeFileSync(join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((o) => `  <url><loc>${site.url}${o.path}</loc><lastmod>${o.kind === 'post' ? o.date : (o.date > '2026-10-19' ? o.date : '2026-10-19')}</lastmod><priority>${o.priority.toFixed(1)}</priority></url>`).join('\n')}\n</urlset>\n`);
 writeFileSync(join(dist, 'robots.txt'), `User-agent: *\nAllow: /\nDisallow: /thanks/\n\nSitemap: ${site.url}/sitemap.xml\n`);
-writeFileSync(join(dist, '_headers'), `/img/*\n  Cache-Control: public, max-age=31536000, immutable\n/og/*\n  Cache-Control: public, max-age=604800\n/video/*\n  Cache-Control: public, max-age=31536000, immutable\n/css/*\n  Cache-Control: public, max-age=3600\n/js/*\n  Cache-Control: public, max-age=3600\n/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n`);
+writeFileSync(join(dist, '_headers'), `/img/*\n  Cache-Control: public, max-age=31536000, immutable\n/og/*\n  Cache-Control: public, max-age=604800\n/video/*\n  Cache-Control: public, max-age=31536000, immutable\n/css/*\n  Cache-Control: public, max-age=3600\n/js/*\n  Cache-Control: public, max-age=3600\n/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  Strict-Transport-Security: max-age=31536000\n  Permissions-Policy: camera=(), microphone=(), geolocation=()\n  X-Frame-Options: SAMEORIGIN\n`);
+writeFileSync(join(dist, 'site.webmanifest'), JSON.stringify({ name: 'TrekWest Arizona Adventure Tours', short_name: 'TrekWest', start_url: '/', display: 'browser', background_color: '#ffffff', theme_color: '#17465d', icons: [{ src: '/icon-192.png', sizes: '192x192', type: 'image/png' }] }));
+writeFileSync(join(dist, '_redirects'), ['/home / 301', '/index.html / 301', '/feed /trail-mix-trekwest-tours-northern-arizona-blog-newsletter/ 301', '/feed/* /trail-mix-trekwest-tours-northern-arizona-blog-newsletter/ 301', '/blog /trail-mix-trekwest-tours-northern-arizona-blog-newsletter/ 301', '/faq /frequently-asked-questions/ 301', '/faqs /frequently-asked-questions/ 301', '/contact /contact-us/ 301', '/about /our-guides-the-trekwest-story/ 301', '/about-us /our-guides-the-trekwest-story/ 301', '/book /book-your-tour/ 301', '/book-now /book-your-tour/ 301', '/tours /#tours 301'].join('\n') + '\n');
+writeFileSync(join(dist, 'llms.txt'), `# TrekWest Arizona Adventure Tours\n\n> Family-owned boutique guide company in Flagstaff, Arizona. Small-group (max 10 guests) Grand Canyon day tours from Flagstaff and Williams, plus private tours, e-bike and hike days, sunset and dark-sky tours. Rated 5 stars on Tripadvisor and Google.\n\nPhone: 928.814.2432 | Email: info@trekwest.net | 2404 E Route 66, Flagstaff, AZ 86004\n\n## Tours\n${Object.keys(TOURS).map((p) => `- [${(out.find((o) => o.path === p) || {}).title}](${site.url}${p})`).join('\n')}\n- [Book online](${site.url}/book-your-tour/)\n\n## Guides and answers\n- [FAQs](${site.url}/frequently-asked-questions/)\n- [About our guides](${site.url}/our-guides-the-trekwest-story/)\n- [Trail Mix travel blog](${site.url}/trail-mix-trekwest-tours-northern-arizona-blog-newsletter/)\n`);
 const sizeMB = (d) => { let t = 0; const w = (x) => { for (const e of readdirSync(x)) { const p = join(x, e); const s = statSync(p); s.isDirectory() ? w(p) : (t += s.size); } }; w(d); return (t / 1e6).toFixed(1); };
 console.log(`built ${out.length} pages, ${used.size} assets, ${sizeMB(dist)} MB, ${warn} warnings`);

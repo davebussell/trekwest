@@ -471,3 +471,13 @@ p.stop strong { font-weight: 700; }
 /* voices is followed by the angled "confidence" band, which overlaps its last wedge-height; lift the gold above that */
 .voices { padding-bottom: calc(var(--wb) + var(--slope) * 2); }
 .voices::after { bottom: var(--slope); }
+
+/* anchor jumps clear the fixed header */
+html { scroll-padding-top: 5.5rem; }
+
+/* end-of-article booking prompt */
+.cta-band { background: var(--paper); border-top: 1px solid var(--line); }
+.cta-band .wrap { display: flex; flex-wrap: wrap; gap: 1.2rem 2.5rem; align-items: center; justify-content: space-between; }
+.cta-band h2 { margin: 0 0 .3em; font-size: clamp(1.4rem, 3vw, 2rem); }
+.cta-band p { margin: 0; max-width: 40rem; }
+.cta-actions { display: flex; flex-wrap: wrap; gap: .8rem; align-items: center; }
