@@ -35,6 +35,7 @@ function img(slug, sizes, eager = false) {
 
 const pagesDir = join(src, 'pages');
 const out = []; // {path, html, noindex, priority}
+let warnCount = 0;
 
 function render(slug, raw) {
   const mm = raw.match(/^<!--meta (.*?) -->\n/s);
@@ -61,7 +62,11 @@ function render(slug, raw) {
     if (byline) { const parts = byline[1].split('|').map((s) => s.trim()); date = parts[1] || ''; cats = parts[2] || ''; }
     const fig = first.match(/<figure>(.*?)<\/figure>/s);
     const photo = fig ? `<div class="hero-photo">${fig[1].replace('alt=""', `alt="${esc(meta.h1)}"`).replace(/sizes="[^"]*"/, 'sizes="(min-width:74rem) 70rem, 96vw"').replace('loading="lazy"', 'loading="eager"')}</div>` : '';
-    h = `<section class="hero"><div class="in"><p class="crumb"><a href="/trail-mix-trekwest-tours-northern-arizona-blog-newsletter/">Trail Mix blog</a></p><h1>${esc(meta.h1)}</h1><p class="meta">By TrekWest${date ? ' · ' + esc(date) : ''}${cats ? ' · ' + esc(cats) : ''}</p></div></section>${photo}<div class="article">${rest.filter((x) => x.trim()).map((x) => x + '</section>').join('\n')}</div>`;
+    h = `<section class="hero"><div class="in"><p class="crumb"><a href="/guides/">Guides</a> / From the trail</p><h1>${esc(meta.h1)}</h1><p class="meta">By TrekWest${date ? ' · ' + esc(date) : ''}${cats ? ' · ' + esc(cats) : ''}</p></div></section>${photo}<div class="article">${rest.filter((x) => x.trim()).map((x) => x + '</section>').join('\n')}</div>`;
+  } else if (meta.kind === 'guide') {
+    const upd = new Date((cfg.date || today) + 'T12:00:00Z').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+    const photo = cfg.og && man[cfg.og] ? `<div class="hero-photo">${img(cfg.og, '(min-width:74rem) 70rem, 96vw', true).replace('alt=""', `alt="${esc(cfg.ogalt || meta.h1)}"`)}</div>` : '';
+    h = `<section class="hero"><div class="in"><p class="crumb"><a href="/guides/">Guides</a> / ${esc(meta.cat || 'Planning')}</p><h1>${esc(meta.h1)}</h1><p class="meta">By the TrekWest guides · Updated ${upd}</p></div></section>${photo}<div class="article"><section class="band"><div class="row"><div class="col">${body}</div></div></section></div>`;
   } else if (meta.kind === 'info') {
     body = body.replace('@@H1@@', '');
     h = `<section class="hero"><div class="in"><h1>${esc(meta.h1)}</h1></div></section><div class="single">${body}</div>`;
@@ -83,12 +88,12 @@ function render(slug, raw) {
     graph.push(ORG, { '@type': 'WebSite', '@id': site.url + '/#website', url: site.url + '/', name: 'TrekWest Arizona Adventure Tours', publisher: { '@id': site.url + '/#business' }, inLanguage: 'en-US' });
   } else if (!noindex) {
     const crumbs = [{ name: 'Home', url: site.url + '/' }];
-    if (meta.kind === 'post') crumbs.push({ name: 'Trail Mix blog', url: site.url + '/trail-mix-trekwest-tours-northern-arizona-blog-newsletter/' });
+    if (meta.kind === 'post' || meta.kind === 'guide') crumbs.push({ name: 'Guides', url: site.url + '/guides/' });
     crumbs.push({ name: meta.h1 || baseTitle, url: canonical });
     graph.push({ '@type': 'BreadcrumbList', itemListElement: crumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: c.url })) });
     const pageImg = ogimage;
-    if (meta.kind === 'post') {
-      graph.push({ '@type': 'BlogPosting', headline: meta.h1, description: desc, image: [pageImg], mainEntityOfPage: canonical, datePublished: cfg.date || '2026-04-01', dateModified: cfg.date || '2026-04-01', author: { '@type': 'Organization', name: 'TrekWest Tours', url: site.url + '/' }, publisher: { '@type': 'Organization', name: 'TrekWest Arizona Adventure Tours', logo: { '@type': 'ImageObject', url: site.url + '/icon-192.png' } } });
+    if (meta.kind === 'post' || meta.kind === 'guide') {
+      graph.push({ '@type': meta.kind === 'guide' ? 'Article' : 'BlogPosting', headline: meta.h1, description: desc, image: [pageImg], mainEntityOfPage: canonical, datePublished: cfg.date || '2026-04-01', dateModified: cfg.date || '2026-04-01', author: { '@type': 'Organization', name: 'TrekWest Tours', url: site.url + '/' }, publisher: { '@type': 'Organization', name: 'TrekWest Arizona Adventure Tours', logo: { '@type': 'ImageObject', url: site.url + '/icon-192.png' } } });
     } else if (meta.kind === 'tour' && TOURS[path]) {
       const t = TOURS[path];
       const offer = t.from ? { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: t.price, offerCount: 1, availability: 'https://schema.org/InStock', url: canonical } : { '@type': 'Offer', priceCurrency: 'USD', price: t.price, availability: 'https://schema.org/InStock', url: canonical };
@@ -100,11 +105,11 @@ function render(slug, raw) {
   let head = P.head
     .replaceAll('{{title}}', esc(title)).replaceAll('{{description}}', esc(desc))
     .replaceAll('{{canonical}}', canonical).replaceAll('{{robots}}', noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large')
-    .replaceAll('{{ogtype}}', meta.kind === 'post' ? 'article' : 'website').replaceAll('{{ogimage}}', ogimage)
+    .replaceAll('{{ogtype}}', meta.kind === 'post' || meta.kind === 'guide' ? 'article' : 'website').replaceAll('{{ogimage}}', ogimage)
     .replaceAll('{{buildid}}', buildid).replaceAll('{{gsc}}', gsc).replaceAll('{{gaid}}', site.gaId).replaceAll('{{jsonld}}', jsonld)
-    .replaceAll('{{ogalt}}', esc(cfg.ogalt || meta.h1 || BRAND)).replaceAll('{{extra}}', meta.kind === 'post' ? `<meta property="article:published_time" content="${cfg.date || '2026-04-01'}"><meta property="article:author" content="TrekWest Tours"><meta property="article:section" content="Northern Arizona travel">` : '');
+    .replaceAll('{{ogalt}}', esc(cfg.ogalt || meta.h1 || BRAND)).replaceAll('{{extra}}', meta.kind === 'post' || meta.kind === 'guide' ? `<meta property="article:published_time" content="${cfg.date || '2026-04-01'}"><meta property="article:author" content="TrekWest Tours"><meta property="article:section" content="Northern Arizona travel">` : '');
 
-  const isBlog = path.includes('blog') || meta.kind === 'post';
+  const isBlog = path === '/guides/' || meta.kind === 'post' || meta.kind === 'guide';
   const header = P.header.replace('{{hclass}}', path === '/' ? ' on-hero' : '').replace(/\{\{cur:([^}]+)\}\}/g, (_, k) => {
     const cur = k === 'group' ? GROUP.has(path) : k === 'private' ? PRIVATE.has(path) && path !== '/private-tour-inquire-about-customized-private-tours/' || false : k === 'blog' ? isBlog : k === path;
     return cur ? ' aria-current="page"' : '';
@@ -119,7 +124,7 @@ function render(slug, raw) {
     const m = tag.match(/src="\/img\/(.+?)-\d+\.webp"/); const a = m && (site.alts || {})[m[1]];
     return a ? tag.replace('alt=""', `alt="${esc(a)}"`) : tag;
   });
-  out.push({ kind: meta.kind, date: cfg.date || '2026-04-01', title: meta.h1 || title, path, html, noindex, priority: cfg.priority ?? 0.5, file: slug === '404' ? '404.html' : (path === '/' ? 'index.html' : path.slice(1) + 'index.html') });
+  out.push({ kind: meta.kind, cat: meta.cat || 'Planning', date: cfg.date || '2026-04-01', title: meta.h1 || title, path, html, noindex, priority: cfg.priority ?? 0.5, file: slug === '404' ? '404.html' : (path === '/' ? 'index.html' : path.slice(1) + 'index.html') });
 }
 
 for (const f of readdirSync(pagesDir).filter((f) => f.endsWith('.html')).sort()) {
@@ -128,7 +133,7 @@ for (const f of readdirSync(pagesDir).filter((f) => f.endsWith('.html')).sort())
 
 
 // ---- recent posts strip (inner pages) ----
-const NORECENT = new Set(['/', '/404/', '/thanks/', '/grand-canyon-blog/', '/trail-mix-trekwest-tours-northern-arizona-blog-newsletter/', '/book-your-tour/', '/private-tour-inquire-about-customized-private-tours/']);
+const NORECENT = new Set(['/', '/404/', '/thanks/', '/guides/', '/book-your-tour/', '/private-tour-inquire-about-customized-private-tours/']);
 const postsNewest = out.filter((o) => o.kind === 'post').sort((a, b) => b.date.localeCompare(a.date) || a.path.localeCompare(b.path));
 function recents(selfPath) {
   const items = postsNewest.filter((p) => p.path !== selfPath).slice(0, 3);
@@ -137,7 +142,7 @@ function recents(selfPath) {
     const fs = [...m.files].sort((x, y) => x[0] - y[0]);
     return `<article class="post-card"><a href="${p.path}"><img src="/img/${fs[fs.length - 1][1]}" srcset="${fs.map(([w, n]) => `/img/${n} ${w}w`).join(', ')}" sizes="(min-width:52rem) 30vw, 92vw" width="${m.w}" height="${m.h}" alt="" loading="lazy" decoding="async"><h3>${esc(p.title)}</h3></a></article>`;
   }).join('');
-  return `<section class="band recents" aria-label="Recent posts"><div class="wrap"><h2>Latest from Trail Mix</h2><div class="posts">${cards}</div><p class="more"><a class="arrow" href="/trail-mix-trekwest-tours-northern-arizona-blog-newsletter/">All posts</a><a href="https://www.instagram.com/trekwesttours/" target="_blank" rel="noopener me">Follow @trekwesttours on Instagram</a></p></div></section>`;
+  return `<section class="band recents" aria-label="Recent posts"><div class="wrap"><h2>Latest from the trail</h2><div class="posts">${cards}</div><p class="more"><a class="arrow" href="/guides/">All guides</a><a href="https://www.instagram.com/trekwesttours/" target="_blank" rel="noopener me">Follow @trekwesttours on Instagram</a></p></div></section>`;
 }
 
 // home Trail Mix rows: newest 3 posts
@@ -152,13 +157,29 @@ function recents(selfPath) {
   home.html = home.html.replace(/<div class="plist">[\s\S]*?<\/div>(?=\s*<\/div>\s*<\/section>)/, `<div class="plist">${rows}</div>`);
 }
 const CTA = `<section class="band cta-band" aria-label="Book a tour"><div class="wrap"><div><h2>Want to see it with a local guide?</h2><p>Small groups, no more than 10 guests, park fees and lunch included on our day tours. Book online or ask us anything.</p></div><div class="cta-actions"><a class="btn" href="/book-your-tour/">Book a tour</a><a class="btn-ghost" href="/contact-us/">Ask a question</a></div></div></section>`;
-for (const o of out) { if (NORECENT.has(o.path) || o.noindex) continue; o.html = o.html.replace('</main>', (o.kind === 'post' ? CTA : '') + recents(o.path) + '\n</main>'); }
+for (const o of out) { if (NORECENT.has(o.path) || o.noindex) continue; o.html = o.html.replace('</main>', (o.kind === 'post' || o.kind === 'guide' ? CTA : '') + recents(o.path) + '\n</main>'); }
+
+// ---- guides index: existing trail posts first, then the planning guides ----
+{
+  const gi = out.find((o) => o.path === '/guides/');
+  const fmt = (iso) => new Date(iso + 'T12:00:00Z').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+  const card = (p, sub) => {
+    const cfg = site.pages[p.path] || {}; const m = cfg.og && man[cfg.og]; if (!m) { console.warn('  ! no og image for', p.path); warnCount++; return ''; }
+    const fs = [...m.files].sort((x, y) => x[0] - y[0]);
+    return `<article class="post-card"><a href="${p.path}"><img src="/img/${fs[fs.length - 1][1]}" srcset="${fs.map(([w, n]) => `/img/${n} ${w}w`).join(', ')}" sizes="(min-width:62rem) 30vw, (min-width:36rem) 45vw, 92vw" width="${m.w}" height="${m.h}" alt="${esc(cfg.ogalt || p.title)}" loading="lazy" decoding="async"><p class="meta">${esc(sub)}</p><h3>${esc(p.title)}</h3><p>${esc(cfg.desc || '')}</p></a></article>`;
+  };
+  const guides = out.filter((o) => o.kind === 'guide').sort((a, b) => ((site.pages[a.path] || {}).rank ?? 99) - ((site.pages[b.path] || {}).rank ?? 99));
+  const cats = [...new Set(guides.map((g) => g.cat))];
+  const sections = [`<section class="band gsec"><div class="wrap"><h2>From the trail</h2><p class="sub">Trip notes and local favourites from our guides.</p><div class="posts">${postsNewest.map((p) => card(p, fmt(p.date))).join('')}</div></div></section>`,
+    ...cats.map((c) => `<section class="band gsec"><div class="wrap"><h2>${esc(c)}</h2><div class="posts">${guides.filter((g) => g.cat === c).map((g) => card(g, c)).join('')}</div></div></section>`)];
+  gi.html = gi.html.replace('@@GUIDE_INDEX@@', sections.join('\n'));
+}
 
 // ---- write ----
 rmSync(dist, { recursive: true, force: true });
 const used = new Set();
 const known = new Set(out.map((o) => o.path));
-let warn = 0;
+let warn = warnCount;
 for (const o of out) {
   const p = join(dist, o.file); mkdirSync(dirname(p), { recursive: true }); writeFileSync(p, o.html);
   for (const m of o.html.matchAll(/\/(img|og|video)\/[^\s"',)]+/g)) used.add(m[0]);
@@ -187,7 +208,7 @@ writeFileSync(join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
 writeFileSync(join(dist, 'robots.txt'), `User-agent: *\nAllow: /\nDisallow: /thanks/\n\nSitemap: ${site.url}/sitemap.xml\n`);
 writeFileSync(join(dist, '_headers'), `/img/*\n  Cache-Control: public, max-age=31536000, immutable\n/og/*\n  Cache-Control: public, max-age=604800\n/video/*\n  Cache-Control: public, max-age=31536000, immutable\n/css/*\n  Cache-Control: public, max-age=3600\n/js/*\n  Cache-Control: public, max-age=3600\n/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  Strict-Transport-Security: max-age=31536000\n  Permissions-Policy: camera=(), microphone=(), geolocation=()\n  X-Frame-Options: SAMEORIGIN\n`);
 writeFileSync(join(dist, 'site.webmanifest'), JSON.stringify({ name: 'TrekWest Arizona Adventure Tours', short_name: 'TrekWest', start_url: '/', display: 'browser', background_color: '#ffffff', theme_color: '#17465d', icons: [{ src: '/icon-192.png', sizes: '192x192', type: 'image/png' }] }));
-writeFileSync(join(dist, '_redirects'), ['/home / 301', '/index.html / 301', '/feed /trail-mix-trekwest-tours-northern-arizona-blog-newsletter/ 301', '/feed/* /trail-mix-trekwest-tours-northern-arizona-blog-newsletter/ 301', '/blog /trail-mix-trekwest-tours-northern-arizona-blog-newsletter/ 301', '/faq /frequently-asked-questions/ 301', '/faqs /frequently-asked-questions/ 301', '/contact /contact-us/ 301', '/about /our-guides-the-trekwest-story/ 301', '/about-us /our-guides-the-trekwest-story/ 301', '/book /book-your-tour/ 301', '/book-now /book-your-tour/ 301', '/tours /#tours 301'].join('\n') + '\n');
-writeFileSync(join(dist, 'llms.txt'), `# TrekWest Arizona Adventure Tours\n\n> Family-owned boutique guide company in Flagstaff, Arizona. Small-group (max 10 guests) Grand Canyon day tours from Flagstaff and Williams, plus private tours, e-bike and hike days, sunset and dark-sky tours. Rated 5 stars on Tripadvisor and Google.\n\nPhone: 928.814.2432 | Email: info@trekwest.net | 2404 E Route 66, Flagstaff, AZ 86004\n\n## Tours\n${Object.keys(TOURS).map((p) => `- [${(out.find((o) => o.path === p) || {}).title}](${site.url}${p})`).join('\n')}\n- [Book online](${site.url}/book-your-tour/)\n\n## Guides and answers\n- [FAQs](${site.url}/frequently-asked-questions/)\n- [About our guides](${site.url}/our-guides-the-trekwest-story/)\n- [Trail Mix travel blog](${site.url}/trail-mix-trekwest-tours-northern-arizona-blog-newsletter/)\n`);
+writeFileSync(join(dist, '_redirects'), ['/home / 301', '/index.html / 301', '/feed /guides/ 301', '/feed/* /guides/ 301', '/blog /guides/ 301', '/blog/* /guides/ 301', '/trail-mix-trekwest-tours-northern-arizona-blog-newsletter/ /guides/ 301', '/trail-mix-trekwest-tours-northern-arizona-blog-newsletter/* /guides/ 301', '/grand-canyon-blog/ /guides/ 301', '/grand-canyon-blog/* /guides/ 301', '/category/* /guides/ 301', '/tag/* /guides/ 301', '/faq /frequently-asked-questions/ 301', '/faqs /frequently-asked-questions/ 301', '/contact /contact-us/ 301', '/about /our-guides-the-trekwest-story/ 301', '/about-us /our-guides-the-trekwest-story/ 301', '/book /book-your-tour/ 301', '/book-now /book-your-tour/ 301', '/tours /#tours 301'].join('\n') + '\n');
+writeFileSync(join(dist, 'llms.txt'), `# TrekWest Arizona Adventure Tours\n\n> Family-owned boutique guide company in Flagstaff, Arizona. Small-group (max 10 guests) Grand Canyon day tours from Flagstaff and Williams, plus private tours, e-bike and hike days, sunset and dark-sky tours. Rated 5 stars on Tripadvisor and Google.\n\nPhone: 928.814.2432 | Email: info@trekwest.net | 2404 E Route 66, Flagstaff, AZ 86004\n\n## Tours\n${Object.keys(TOURS).map((p) => `- [${(out.find((o) => o.path === p) || {}).title}](${site.url}${p})`).join('\n')}\n- [Book online](${site.url}/book-your-tour/)\n\n## Guides and answers\n- [FAQs](${site.url}/frequently-asked-questions/)\n- [About our guides](${site.url}/our-guides-the-trekwest-story/)\n- [Guides: planning, comparisons and trail notes](${site.url}/guides/)\n${out.filter((o) => o.kind === 'guide').map((o) => `- [${o.title}](${site.url}${o.path})`).join('\n')}\n`);
 const sizeMB = (d) => { let t = 0; const w = (x) => { for (const e of readdirSync(x)) { const p = join(x, e); const s = statSync(p); s.isDirectory() ? w(p) : (t += s.size); } }; w(d); return (t / 1e6).toFixed(1); };
 console.log(`built ${out.length} pages, ${used.size} assets, ${sizeMB(dist)} MB, ${warn} warnings`);

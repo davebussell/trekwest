@@ -126,17 +126,6 @@
    "og": "van2",
    "desc": "How TrekWest Tours, a DBA of Neal Ventures LLC, collects, uses and protects your personal information."
   },
-  "/grand-canyon-blog/": {
-   "priority": 0.5,
-   "og": "img-7486",
-   "desc": "Trail tips, hikes and local guides from the TrekWest team: where to eat and stay in Flagstaff, the Rim-to-River hike and desert water hikes."
-  },
-  "/trail-mix-trekwest-tours-northern-arizona-blog-newsletter/": {
-   "priority": 0.6,
-   "og": "img-7486",
-   "desc": "The Trail Mix: TrekWest's Northern Arizona blog and newsletter, with hiking guides, Flagstaff food tips and Grand Canyon trip planning.",
-   "title": "Trail Mix: Northern Arizona Travel Blog | TrekWest"
-  },
   "/flagstaff-arizonas-best-day-hikes/": {
    "priority": 0.6,
    "og": "img-7486",
@@ -238,6 +227,147 @@
    "og": "img-2384",
    "desc": "One of the biggest perks of a private tour is rewriting the itinerary. A recent day: Sunset Crater, Wupatki, Cameron Trading Post and the East Rim.",
    "date": "2026-09-28"
+  },
+  "/guides/": {
+   "priority": 0.8,
+   "og": "img-2455",
+   "date": "2026-10-20"
+  },
+  "/phoenix-to-grand-canyon/": {
+   "priority": 0.7,
+   "og": "img-3344",
+   "ogalt": "TrekWest van on a pine-lined road with the San Francisco Peaks behind",
+   "desc": "How far is the Grand Canyon from Phoenix? About 230 miles and 3.5 to 4 hours each way. Routes, where to stop, and why a night in Flagstaff turns a long day into a great one.",
+   "date": "2026-10-20",
+   "rank": 1
+  },
+  "/sedona-to-grand-canyon/": {
+   "priority": 0.7,
+   "og": "34b2c517-33c5-4097-a5c5-ef282bf2ffaf",
+   "ogalt": "Red sandstone canyon reflected in a still creek with fall leaves",
+   "desc": "Sedona to the Grand Canyon South Rim is about 115 miles and 2 to 2.5 hours through Oak Creek Canyon and Flagstaff. How to do it as a day trip, what to stop for, and your tour options.",
+   "date": "2026-10-20",
+   "rank": 2
+  },
+  "/flagstaff-to-grand-canyon/": {
+   "priority": 0.7,
+   "og": "panograndcanyon",
+   "ogalt": "Two guests at a Grand Canyon overlook watching the Colorado River",
+   "desc": "Flagstaff to the Grand Canyon South Rim is 80 miles and about 1.5 hours on US-180. Routes, winter driving, what to see on the way, and why Flagstaff is the best base for the canyon.",
+   "date": "2026-10-20",
+   "rank": 3
+  },
+  "/las-vegas-vs-flagstaff-grand-canyon/": {
+   "priority": 0.7,
+   "og": "img-2416-1",
+   "ogalt": "Guests on a Grand Canyon overlook as the sun breaks through clouds",
+   "desc": "From Las Vegas, the real Grand Canyon (the South Rim) is 4.5 hours away; the West Rim Skywalk is 2.5 hours but outside the national park. What each option gets you, and when Flagstaff is the smarter base.",
+   "date": "2026-10-20",
+   "rank": 10
+  },
+  "/grand-canyon-helicopter-vs-ground-tour/": {
+   "priority": 0.7,
+   "og": "img-1468",
+   "ogalt": "Smiling TrekWest guide on a Grand Canyon rim outcrop",
+   "desc": "Thinking about a Grand Canyon helicopter tour? Here is an honest comparison with a guided rim tour and a day hike: what you see, how long you get, who each suits, and how to combine them.",
+   "date": "2026-10-20",
+   "rank": 11
+  },
+  "/grand-canyon-rafting-vs-rim-tour/": {
+   "priority": 0.7,
+   "og": "556938485-10172586905480327-7804287271371365140-n",
+   "ogalt": "Backpacker beside the Colorado River at the bottom of the Grand Canyon",
+   "desc": "Grand Canyon rafting trips range from a half-day float below Glen Canyon Dam to 18 days of whitewater. What each involves, how far ahead to book, and how to pair the river with a day at the rim.",
+   "date": "2026-10-20",
+   "rank": 12
+  },
+  "/grand-canyon-south-rim-vs-west-rim-vs-north-rim/": {
+   "priority": 0.7,
+   "og": "img-2895",
+   "ogalt": "Guests looking down to the Colorado River from a Grand Canyon lookout",
+   "desc": "The South Rim, the West Rim Skywalk and the North Rim are hours apart and very different. Distances from Flagstaff, Las Vegas and Phoenix, seasons, crowds, fees and what each one is for.",
+   "date": "2026-10-20",
+   "rank": 13
+  },
+  "/grand-canyon-railway-vs-tour-from-williams/": {
+   "priority": 0.7,
+   "og": "img-1344",
+   "ogalt": "Guests gathered around a spotting scope at a Grand Canyon overlook",
+   "desc": "The Grand Canyon Railway leaves Williams at 9:30 am and gives you about 3 hours 45 minutes at the rim. Here is how that compares with a guided small-group day from Williams, and how to combine the two.",
+   "date": "2026-10-20",
+   "rank": 14
+  },
+  "/grand-canyon-horseshoe-bend-antelope-canyon-one-trip/": {
+   "priority": 0.7,
+   "og": "horseshoebend",
+   "ogalt": "Horseshoe Bend near Page, Arizona",
+   "desc": "Yes, but not in one day. Distances between the South Rim, Page, Horseshoe Bend and Antelope Canyon, the booking rules for the slot canyons, and a two or three-day plan from Flagstaff that works.",
+   "date": "2026-10-20",
+   "rank": 15
+  },
+  "/how-to-choose-a-grand-canyon-tour-company/": {
+   "priority": 0.7,
+   "og": "van2",
+   "ogalt": "TrekWest tour van parked at a Grand Canyon viewpoint while guests look out",
+   "desc": "Big bus, Jeep, van or private guide? Nine questions that separate a great Grand Canyon tour from a long day in a coach: group size, what is included, where you stop, who your guide is, and the cancellation policy.",
+   "date": "2026-10-20",
+   "rank": 16
+  },
+  "/things-to-do-grand-canyon-south-rim/": {
+   "priority": 0.7,
+   "og": "img-1295",
+   "ogalt": "Family pointing out the view with their TrekWest guide at a Grand Canyon overlook",
+   "desc": "The best things to do at the Grand Canyon South Rim, ranked by people who go every day: the overlooks worth stopping for, the Village, walks below the rim, Desert View, sunset spots and what to skip.",
+   "date": "2026-10-20",
+   "rank": 20
+  },
+  "/grand-canyon-day-hikes-guide/": {
+   "priority": 0.7,
+   "og": "kaibabtrailhikinggrandcanyon",
+   "ogalt": "Hiker on a ledge above the Grand Canyon on the South Kaibab Trail",
+   "desc": "The best Grand Canyon day hikes from the South Rim with honest distances and elevation: Rim Trail, Ooh Aah Point, Cedar Ridge, Skeleton Point, 3-Mile Resthouse and Havasupai Gardens. Plus when a guided hike is worth it.",
+   "date": "2026-10-20",
+   "rank": 21
+  },
+  "/grand-canyon-trip-cost/": {
+   "priority": 0.7,
+   "og": "lunch",
+   "ogalt": "Picnic lunch set on a rock with the Grand Canyon behind",
+   "desc": "What a Grand Canyon visit really costs in 2026: the $35 vehicle entrance fee, the non-resident surcharge, parking, lodging in Flagstaff vs the park, food, and what a guided tour includes so you can compare fairly.",
+   "date": "2026-10-20",
+   "rank": 22
+  },
+  "/grand-canyon-itinerary-1-2-3-days/": {
+   "priority": 0.7,
+   "og": "img-2476",
+   "ogalt": "Two guests watching the sun set over the Grand Canyon from a rocky ledge",
+   "desc": "Hour-by-hour Grand Canyon itineraries for one, two and three days using Flagstaff as your base: the South Rim done properly, a hike below the rim, sunset, and add-ons to Sedona, Wupatki and Page.",
+   "date": "2026-10-20",
+   "rank": 23
+  },
+  "/grand-canyon-with-kids/": {
+   "priority": 0.7,
+   "og": "img-2384",
+   "ogalt": "Family of five posing on a rocky Grand Canyon overlook",
+   "desc": "Visiting the Grand Canyon with children: the safe overlooks, the Junior Ranger programme, how far to walk below the rim, where to eat, how to handle altitude and heat, and why a small-group or private tour works well for families.",
+   "date": "2026-10-20",
+   "rank": 24
+  },
+  "/sedona-hiking-guide/": {
+   "priority": 0.7,
+   "og": "17fd6c51-5c45-47d7-a462-71fbeca8c748",
+   "ogalt": "Calm creek lined with tall grass and fall-coloured trees in northern Arizona",
+   "desc": "The best Sedona hikes for a first visit, with distances, parking realities and the Red Rock Pass: Cathedral Rock, Devil’s Bridge, Bell Rock, West Fork, Fay Canyon and Doe Mountain. Plus quieter red-rock alternatives and private guided days from Flagstaff.",
+   "date": "2026-10-20",
+   "rank": 30
+  },
+  "/sedona-tours-guide/": {
+   "priority": 0.7,
+   "og": "img-1632",
+   "ogalt": "Hiker standing beside a creek under red rock walls and golden fall leaves",
+   "desc": "Sedona tours compared: the famous Jeep rides, guided hikes, the scenic drives you can do yourself (Red Rock Loop, Oak Creek Canyon, Schnebly Hill) and private guided days that pair Sedona with the Grand Canyon.",
+   "date": "2026-10-20",
+   "rank": 31
   }
  },
  "alts": {
