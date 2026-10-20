@@ -368,6 +368,38 @@
    "desc": "Sedona tours compared: the famous Jeep rides, guided hikes, the scenic drives you can do yourself (Red Rock Loop, Oak Creek Canyon, Schnebly Hill) and private guided days that pair Sedona with the Grand Canyon.",
    "date": "2026-10-20",
    "rank": 31
+  },
+  "/sedona-jeep-tours-worth-it-alternatives/": {
+   "priority": 0.7,
+   "og": "img-9477",
+   "ogalt": "Smiling couple in jackets by a red rock creek in autumn",
+   "desc": "What a Sedona Jeep tour actually is (1.5 to 3 hours on rough forest roads like Broken Arrow and Schnebly Hill), who it suits, what it costs you in time, and the hiking, scenic-drive and private-guide alternatives.",
+   "date": "2026-10-20",
+   "rank": 32
+  },
+  "/things-to-do-in-sedona/": {
+   "priority": 0.7,
+   "og": "img-1632",
+   "ogalt": "Hiker standing beside a creek under red rock walls and golden fall leaves",
+   "desc": "The things to do in Sedona that are worth your limited time: the best red rock viewpoints, Oak Creek swimming holes, the Chapel, Tlaquepaque, short hikes, sunset spots, and what to skip, from guides based 45 minutes up the canyon.",
+   "date": "2026-10-20",
+   "rank": 33
+  },
+  "/sedona-to-antelope-canyon-horseshoe-bend/": {
+   "priority": 0.7,
+   "og": "horseshoebend",
+   "ogalt": "Horseshoe Bend near Page, Arizona",
+   "desc": "Sedona to Page, Arizona (Antelope Canyon and Horseshoe Bend) is about 165 miles and 2 hours 45 minutes each way through Flagstaff. Why it is not a day trip, the booking rules for Antelope Canyon, and a two-day route that adds the Grand Canyon.",
+   "date": "2026-10-20",
+   "rank": 34
+  },
+  "/phoenix-scottsdale-to-sedona/": {
+   "priority": 0.7,
+   "og": "img-3344",
+   "ogalt": "TrekWest van on a pine-lined road with the San Francisco Peaks behind",
+   "desc": "Phoenix to Sedona is about 115 miles and 2 hours on I-17 and SR-179; Scottsdale adds 15 minutes. Where to stop on the way, how long Sedona needs, and why continuing 45 minutes to Flagstaff opens up the Grand Canyon.",
+   "date": "2026-10-20",
+   "rank": 35
   }
  },
  "alts": {

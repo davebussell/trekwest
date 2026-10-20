@@ -651,6 +651,159 @@ guide('sedona-tours-guide', 'Sedona Tours Without a Jeep: Red Rock Hikes, Scenic
 {related([('/sedona-hiking-guide/', 'Sedona hiking for first-timers'), ('/sedona-to-grand-canyon/', 'Sedona to the Grand Canyon'), ('/sycamore-canyon-parsons-trail-hike/', 'Sycamore Canyon: red rock without the crowds'), ('/how-to-choose-a-grand-canyon-tour-company/', 'How to choose a tour company')])}
 """)
 
+
+guide('sedona-jeep-tours-worth-it-alternatives', 'Sedona Jeep Tours: Are They Worth It, and What Are the Alternatives?',
+      'Sedona Jeep Tours: Worth It? Honest Guide + Alternatives | TrekWest',
+      'What a Sedona Jeep tour actually is (1.5 to 3 hours on rough forest roads like Broken Arrow and Schnebly Hill), who it suits, what it costs you in time, and the hiking, scenic-drive and private-guide alternatives.',
+      'Sedona', 'img-9477', 'Smiling couple in jackets by a red rock creek in autumn', 32, f"""
+{tldr(['A Sedona Jeep tour is a 1.5 to 3-hour open-air ride on rough forest roads with a driver-guide, big views and a lot of bouncing. Several companies run them; Pink is the famous one.',
+       'Worth it if: you have young kids, limited mobility, two hours to spare, or you simply want the ride. Not a substitute for hiking or for a full day out.',
+       'Alternatives: the same viewpoints on foot, the scenic byways in your own car for free, or a private guided day that pairs Sedona with Oak Creek Canyon or the Grand Canyon.',
+       'We are not a Jeep company. We are a Flagstaff guide company, and we would rather you book the right thing than ours.'])}
+<h2>What you actually get on a Jeep tour</h2>
+<p>Most Sedona Jeep tours follow a handful of US Forest Service roads that private cars cannot (or should not) drive: <strong>Broken Arrow</strong> (slickrock, Submarine Rock, Chicken Point: the classic), <strong>Schnebly Hill Road</strong> (a long climb with views over the whole valley), <strong>Soldier Pass</strong> (the sinkhole and the Seven Sacred Pools) and the <strong>Diamondback Gulch</strong> area west of town. The vehicle is a modified open-sided Jeep carrying 6 to 10 guests; the driver narrates the geology and the Hollywood history; there are two or three photo stops. Rides run 1.5 to 3 hours, and the rough-road sections are genuinely rough: expect to hold on.</p>
+<h2>When it is the right choice</h2>
+<ul>
+<li><strong>Young children.</strong> The bouncing is the attraction. A four-year-old who will not hike a mile will talk about the Jeep for a year.</li>
+<li><strong>Limited mobility.</strong> You see slickrock country you could not otherwise reach without walking.</li>
+<li><strong>Time.</strong> If Sedona is a half-day stop between Phoenix and the Grand Canyon, a two-hour ride is efficient.</li>
+<li><strong>You want the ride.</strong> That is a perfectly good reason.</li>
+</ul>
+<h2>When it is not</h2>
+<ul>
+<li><strong>You came to hike.</strong> Jeep tours stop at viewpoints; they do not walk you anywhere. Two hours in a Jeep is two hours you could have spent on Doe Mountain or in West Fork. <a href="/sedona-hiking-guide/">Our Sedona hiking guide</a>.</li>
+<li><strong>You want quiet.</strong> The popular roads carry a steady stream of vehicles in spring and autumn, and the stops are shared.</li>
+<li><strong>Dust, wind and sun bother you.</strong> It is an open vehicle on dirt roads in a desert. Bring a buff and sunglasses.</li>
+<li><strong>You expected a full day.</strong> Most rides are under three hours. Price per hour is high.</li>
+</ul>
+<h2>The alternatives, honestly compared</h2>
+{table(['', 'Jeep tour', 'Hike it yourself', 'Scenic drive (free)', 'Private guided day (TrekWest)'],
+       [['Time', '1.5 to 3 h', '2 to 5 h', 'Any', 'Full day'],
+        ['Cost', 'Per person, mid to high for the length', 'Red Rock Pass $5 per day', 'Fuel', 'Flat rate for your group'],
+        ['Where you go', 'Forest roads and overlooks', 'Trails: Doe Mountain, Fay Canyon, Cathedral Rock, West Fork', 'SR-179 byway, Oak Creek Canyon, Red Rock Loop, Airport Mesa', 'Oak Creek Canyon, a trail matched to your group, lunch, sunset; or Sedona one day and the Grand Canyon the next'],
+        ['Guide', 'Driver-guide', 'None', 'None', 'Your own guide all day'],
+        ['Kids', 'Excellent', 'Depends on the trail', 'Fine', 'Built around them']])}
+<h2>If you book a Jeep tour anyway</h2>
+<ul>
+<li>Book the <strong>first morning slot</strong>: cooler, emptier roads, better light on the red rock.</li>
+<li>Broken Arrow is the ride to pick if you only do one.</li>
+<li>Ask the <strong>group size</strong>; some operators run smaller vehicles.</li>
+<li>Pair it with a hike or a scenic drive the same day so Sedona is not just two hours in a vehicle.</li>
+</ul>
+<p>And if you would rather spend the day on foot with someone who knows the trails, or link Sedona with a proper Grand Canyon day from a Flagstaff base, that is what we do. <a href="/sedona-tours-guide/">Here is what a private Sedona day looks like.</a></p>
+{PICKUP}
+{CTA_PRIV}
+{related([('/sedona-tours-guide/', 'Sedona tours without a Jeep'), ('/sedona-hiking-guide/', 'Sedona hiking for first-timers'), ('/sedona-to-grand-canyon/', 'Sedona to the Grand Canyon'), ('/how-to-choose-a-grand-canyon-tour-company/', 'How to choose a tour company')])}
+""")
+
+guide('things-to-do-in-sedona', 'Things to Do in Sedona: A Flagstaff Guide’s Short List',
+      'Things to Do in Sedona (A Local Guide’s Picks) | TrekWest',
+      'The things to do in Sedona that are worth your limited time: the best red rock viewpoints, Oak Creek swimming holes, the Chapel, Tlaquepaque, short hikes, sunset spots, and what to skip, from guides based 45 minutes up the canyon.',
+      'Sedona', 'img-1632', 'Hiker standing beside a creek under red rock walls and golden fall leaves', 33, f"""
+{tldr(['Sedona is small. One full day covers the headline sights; two lets you hike properly and swim.',
+       'Must-do: the Red Rock Scenic Byway at sunrise, one short hike (Doe Mountain or Fay Canyon), Oak Creek at Slide Rock or Grasshopper Point, the Chapel of the Holy Cross, sunset from Airport Mesa.',
+       'Skip or shorten: midday on Main Street in spring break, the pay-to-park viewpoints you can see from a trail, anything you have to queue for.',
+       'Sedona and Flagstaff are 45 minutes apart through Oak Creek Canyon, so it is easy to base in one and visit the other.'])}
+<h2>The red rocks</h2>
+<ul>
+<li><strong>Red Rock Scenic Byway (SR-179).</strong> Enter from the south at dawn with the sun behind you: Bell Rock, Courthouse Butte, then the town. Pull-outs are free.</li>
+<li><strong>Airport Mesa.</strong> The 360° view over town; the classic sunset spot. Park in the lower lot and walk up when the upper one is full (always, at sunset).</li>
+<li><strong>Cathedral Rock from Red Rock Crossing</strong> (Crescent Moon Picnic Site, day-use fee): the reflection photo, best in the late afternoon.</li>
+<li><strong>A short hike.</strong> <a href="/sedona-hiking-guide/">Doe Mountain</a> for the view, Fay Canyon for families, Bell Rock Pathway for an easy walk among the giants.</li>
+</ul>
+<h2>The water</h2>
+<ul>
+<li><strong>Slide Rock State Park</strong> (7 miles up Oak Creek Canyon): the natural waterslide, packed on summer weekends; go on a weekday morning or in September.</li>
+<li><strong>Grasshopper Point</strong>: swimming holes and cliffs, day-use fee, quieter than Slide Rock.</li>
+<li><strong>West Fork of Oak Creek</strong>: not swimming so much as wading, through a shaded canyon that is one of the best walks in the state. See also our guide to <a href="/arizonas-best-water-hikes-a-guide-to-desert-oases/">Arizona's water hikes</a>.</li>
+</ul>
+<h2>The town</h2>
+<ul>
+<li><strong>Chapel of the Holy Cross</strong>: a 1956 chapel built into the rock; free, short, worth it. Go early.</li>
+<li><strong>Tlaquepaque</strong>: an arts-and-crafts village under sycamores by the creek. Galleries, courtyards, a couple of good restaurants.</li>
+<li><strong>Uptown</strong>: souvenir shops and crystal stores on SR-89A. One pass is enough.</li>
+<li><strong>Stargazing</strong>: Sedona is an International Dark Sky Community. Drive 10 minutes out of town on any clear night.</li>
+</ul>
+<h2>Nearby, and often better</h2>
+<ul>
+<li><strong>Oak Creek Canyon drive</strong> to the Vista at the top: the way to Flagstaff and the best 14 miles of road in Arizona. <a href="/sedona-to-grand-canyon/">Continue to the Grand Canyon from there.</a></li>
+<li><strong>Jerome</strong>: a copper-mining ghost town on a hillside 40 minutes away.</li>
+<li><strong>Montezuma Castle and <a href="/camp-verde-day-trip-from-flagstaff/">Camp Verde</a></strong>: cliff dwellings and a quieter valley, 30 minutes south.</li>
+<li><strong><a href="/sycamore-canyon-parsons-trail-hike/">Sycamore Canyon</a></strong>: Sedona's red rock with none of Sedona's people.</li>
+</ul>
+<h2>Tours in Sedona</h2>
+<p>The famous ones are Jeep rides, which are fun and short; we have <a href="/sedona-jeep-tours-worth-it-alternatives/">an honest take on when they are worth it</a>. For a full day on foot with a guide, or to combine Sedona with the Grand Canyon from a Flagstaff base, <a href="/sedona-tours-guide/">this is what we offer</a>.</p>
+{CTA_PRIV}
+{related([('/sedona-hiking-guide/', 'Sedona hiking for first-timers'), ('/sedona-tours-guide/', 'Sedona tours without a Jeep'), ('/sedona-to-grand-canyon/', 'Sedona to the Grand Canyon'), ('/grand-canyon-itinerary-1-2-3-days/', 'Grand Canyon itineraries from Flagstaff')])}
+""")
+
+guide('sedona-to-antelope-canyon-horseshoe-bend', 'Sedona to Antelope Canyon and Horseshoe Bend: Distance, Drive Time and How to Plan It',
+      'Sedona to Antelope Canyon & Horseshoe Bend: Distance & Plan | TrekWest',
+      'Sedona to Page, Arizona (Antelope Canyon and Horseshoe Bend) is about 165 miles and 2 hours 45 minutes each way through Flagstaff. Why it is not a day trip, the booking rules for Antelope Canyon, and a two-day route that adds the Grand Canyon.',
+      'Sedona', 'horseshoebend', 'Horseshoe Bend near Page, Arizona', 34, f"""
+{tldr(['Sedona to Page is about 165 miles / 265 km and 2 hours 45 minutes each way: up Oak Creek Canyon to Flagstaff, then US-89 north across the Navajo Nation.',
+       'Antelope Canyon is on Navajo land and visited only on a booked guided tour. Horseshoe Bend is a paid car park and a 1.5-mile round-trip walk.',
+       'As a day trip from Sedona it is 5.5 hours of driving for 3 hours of sights. Make it an overnight, or base in Flagstaff, which is an hour closer.',
+       'The smart route: Sedona, Flagstaff, Grand Canyon South Rim, Desert View, Cameron, Page: the canyon is on the way.'])}
+<h2>The drive</h2>
+{table(['Leg', 'Distance', 'Time'],
+       [['Sedona to Flagstaff (SR-89A up Oak Creek Canyon)', '30 mi', '45 min to 1 h'],
+        ['Flagstaff to Page (US-89 north)', '135 mi', '2 h 15 min'],
+        ['Page to Horseshoe Bend car park', '5 mi', '10 min'],
+        ['Page to Antelope Canyon tour check-in', '5 to 8 mi', '15 min'],
+        ['Optional: Flagstaff to Grand Canyon Village, then Desert View and Cameron to Page', '80 + 25 + 110 mi', '1.5 + 0.75 + 2 h']])}
+<p>US-89 north of Flagstaff is a fast, open two-lane road across the Navajo Nation, with the Painted Desert on your right and almost no services after Cameron. Fill the tank in Flagstaff.</p>
+<h2>Can you do it in a day from Sedona?</h2>
+<p>Technically. Leave at 6 am, Antelope Canyon at 10 or 11, lunch in Page, Horseshoe Bend at 2, back in Sedona by 6. You will have driven 330 miles and spent a lot of the day looking at a windscreen. Most people who do it tell us afterwards they wished they had stayed the night in Page, or moved their base to Flagstaff for the Page and Grand Canyon days. If you only have one day for Page, go. Just know what you are trading.</p>
+<h2>Booking rules</h2>
+<ul>
+<li><strong>Antelope Canyon</strong> (Upper, Lower and the smaller canyons nearby) can only be entered on a tour with an authorised Navajo operator; a Navajo Parks permit is included in the price. Upper is the famous light-beam canyon (beams around midday, roughly late March to early October); Lower has ladders, is narrower and is usually less crowded. Both sell out in season. Book weeks ahead.</li>
+<li><strong>Horseshoe Bend</strong>: City of Page car park, per-vehicle fee, open sunrise to sunset, a graded 0.75-mile trail each way to a railed overlook. Sunrise or late afternoon for the light; midday the river is in shadow.</li>
+<li><strong>Grand Canyon</strong>, if you route through it: $35 per vehicle; non-residents 16+ pay an additional per-person fee unless they hold an annual pass. <a href="/international-park-entrance-fees-to-grand-canyon/">Details.</a></li>
+</ul>
+<h2>The two-day plan that adds the Grand Canyon</h2>
+<ol>
+<li><strong>Day 1.</strong> Sedona up Oak Creek Canyon to Flagstaff by 9. Either drive to the South Rim yourself, or take our <a href="/grand-canyon-day-tour-from-flagstaff/">day tour</a> (which ends at Desert View, the eastern gate) and sleep in Flagstaff. Or, self-driving, leave the park at Desert View and continue to Page for the night (2 hours).</li>
+<li><strong>Day 2.</strong> Antelope Canyon late morning, <a href="/glen-canyon-dam-overlook-page-arizona/">the dam overlook</a>, Horseshoe Bend from 4 pm, then US-89 back to Flagstaff (2.25 hours) or on to Sedona (3 hours).</li>
+</ol>
+<p>With a third day, the half-day smooth-water float from the dam to Lees Ferry passes under Horseshoe Bend from the river; <a href="/grand-canyon-rafting-vs-rim-tour/">our rafting guide</a> explains the options, and our guides have written up <a href="/kayak-horseshoe-bend-from-lees-ferry/">the kayak version</a>.</p>
+<p>We can run this whole route as a <a href="/private-tour-inquire-about-customized-private-tours/">private two-day trip</a> with a guide, including the Antelope Canyon booking. Ask.</p>
+{CTA_PRIV}
+{related([('/grand-canyon-horseshoe-bend-antelope-canyon-one-trip/', 'Grand Canyon, Horseshoe Bend and Antelope Canyon in one trip'), ('/sedona-to-grand-canyon/', 'Sedona to the Grand Canyon'), ('/waterholes-canyon-by-kayak-from-lees-ferry/', 'Waterholes Canyon by kayak'), ('/grand-canyon-itinerary-1-2-3-days/', 'Itineraries')])}
+""")
+
+guide('phoenix-scottsdale-to-sedona', 'Phoenix or Scottsdale to Sedona: The Drive, the Stops, and Whether to Keep Going to Flagstaff',
+      'Phoenix / Scottsdale to Sedona: Drive, Stops & Beyond | TrekWest',
+      'Phoenix to Sedona is about 115 miles and 2 hours on I-17 and SR-179; Scottsdale adds 15 minutes. Where to stop on the way, how long Sedona needs, and why continuing 45 minutes to Flagstaff opens up the Grand Canyon.',
+      'Sedona', 'img-3344', 'TrekWest van on a pine-lined road with the San Francisco Peaks behind', 35, f"""
+{tldr(['Phoenix (Sky Harbor) to Sedona: about 115 miles / 185 km, 2 hours via I-17 north and SR-179 (exit 298). Scottsdale: 2 hours 15 minutes.',
+       'Worth stopping: Montezuma Castle (exit 289), Camp Verde, and the Red Rock Scenic Byway entry into Sedona itself.',
+       'Sedona needs a day. The Grand Canyon needs another. Flagstaff, 45 minutes beyond Sedona, is the base that makes both easy.',
+       'We pick up in Flagstaff for small-group Grand Canyon days; private days can include Sedona or Oak Creek Canyon.'])}
+<h2>The route</h2>
+<p><strong>I-17 north</strong> out of Phoenix climbs from 1,100 ft to over 3,000 ft at Camp Verde in about 90 minutes. Take <strong>exit 298 for SR-179</strong>, which becomes the Red Rock Scenic Byway: 15 miles past Bell Rock and Courthouse Butte into Sedona. It is the best possible way to arrive. (SR-260 via Cottonwood and SR-89A is an alternative that adds Jerome and the Verde Valley wineries.)</p>
+<p>Arrive before 9 am or after 3 pm if you can. Weekend and spring-break traffic on SR-179 and the Uptown roundabouts is Sedona's one real flaw.</p>
+<h2>Stops on the way</h2>
+<ul>
+<li><strong>Montezuma Castle National Monument</strong> (exit 289): a five-storey cliff dwelling, 30 minutes to see, worth every one of them.</li>
+<li><strong><a href="/camp-verde-day-trip-from-flagstaff/">Camp Verde</a></strong>: pecan orchards, Fort Verde, a good lunch stop.</li>
+<li><strong>Rock Springs Café</strong> (exit 242): the pie place. Everyone stops; you should too.</li>
+<li><strong>Sunset Point rest area</strong> (mile 252): the view down into the Agua Fria canyon and the first sign the desert is changing.</li>
+</ul>
+<h2>How long does Sedona need?</h2>
+<p>One day covers the headline sights (<a href="/things-to-do-in-sedona/">our short list</a>); two lets you hike properly and swim in Oak Creek. If you are coming up from Phoenix for a single day, the honest version is: byway at sunrise, a short hike, lunch at Tlaquepaque, Oak Creek in the afternoon, sunset at Airport Mesa, dinner, and a late drive back down I-17 (2 hours, mostly downhill, deer on the road after dark).</p>
+<h2>Why keep going to Flagstaff</h2>
+<p>From Sedona, <strong>SR-89A climbs Oak Creek Canyon</strong> for 14 miles of creek, sycamores and sandstone walls, then switchbacks up to the plateau and reaches Flagstaff in 45 minutes to an hour. At 7,000 ft it is cool in summer and has a real downtown. More to the point, the <strong>Grand Canyon South Rim is 80 miles from Flagstaff</strong> against 115 from Sedona and 230 from Phoenix. A base in Flagstaff turns Sedona and the canyon into two unhurried days instead of two long ones.</p>
+{table(['Plan', 'Driving', 'What you get'],
+       [['Phoenix day trip to Sedona', '4 to 4.5 h', 'Sedona, briefly'],
+        ['Phoenix day trip to the Grand Canyon', '7 to 8 h', 'The canyon at midday, briefly'],
+        ['Two nights in Flagstaff', '2.25 h up, 2.25 h back, plus short hops', 'Oak Creek Canyon on the way; a full Sedona day; a full Grand Canyon day with a guide, sunset included if you want it']])}
+<p>Our <a href="/grand-canyon-day-tour-from-flagstaff/">Grand Canyon day tour</a> picks up in Flagstaff at 8 am and returns around 5:30 pm with park fees and a picnic lunch included; <a href="/phoenix-to-grand-canyon/">the Phoenix-to-Grand-Canyon guide</a> has the full comparison.</p>
+{PICKUP}
+{CTA_DAY}
+{related([('/things-to-do-in-sedona/', 'Things to do in Sedona'), ('/sedona-to-grand-canyon/', 'Sedona to the Grand Canyon'), ('/phoenix-to-grand-canyon/', 'Phoenix to the Grand Canyon'), ('/grand-canyon-itinerary-1-2-3-days/', 'Itineraries from Flagstaff')])}
+""")
+
 # ------------------------------------------------------------------ write
 pages = ROOT / 'src/pages'
 for g in G:
