@@ -33,6 +33,19 @@ function img(slug, sizes, eager = false) {
   return `<img src="/img/${fs[fs.length - 1][1]}" srcset="${srcset}" sizes="${sizes}" width="${m.w}" height="${m.h}" alt="" loading="${eager ? 'eager' : 'lazy'}" decoding="async">`;
 }
 
+// Analytics: GTM (if gtmId set) carries GA4 + Clarity inside the container; otherwise GA4 and Clarity load directly.
+function analytics() {
+  const parts = [];
+  if (site.gtmId) {
+    parts.push(`<!-- Google Tag Manager --><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${site.gtmId}');</script>`);
+  } else {
+    if (site.gaId) parts.push(`<script async src="https://www.googletagmanager.com/gtag/js?id=${site.gaId}"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${site.gaId}');</script>`);
+    if (site.clarityId) parts.push(`<script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","${site.clarityId}");</script>`);
+  }
+  return parts.join('\n');
+}
+const GTM_NOSCRIPT = site.gtmId ? `<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${site.gtmId}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>` : '';
+
 const pagesDir = join(src, 'pages');
 const out = []; // {path, html, noindex, priority}
 let warnCount = 0;
@@ -106,11 +119,11 @@ function render(slug, raw) {
     .replaceAll('{{title}}', esc(title)).replaceAll('{{description}}', esc(desc))
     .replaceAll('{{canonical}}', canonical).replaceAll('{{robots}}', noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large')
     .replaceAll('{{ogtype}}', meta.kind === 'post' || meta.kind === 'guide' ? 'article' : 'website').replaceAll('{{ogimage}}', ogimage)
-    .replaceAll('{{buildid}}', buildid).replaceAll('{{gsc}}', gsc).replaceAll('{{gaid}}', site.gaId).replaceAll('{{jsonld}}', jsonld)
+    .replaceAll('{{buildid}}', buildid).replaceAll('{{gsc}}', gsc).replaceAll('{{analytics}}', analytics()).replaceAll('{{jsonld}}', jsonld)
     .replaceAll('{{ogalt}}', esc(cfg.ogalt || meta.h1 || BRAND)).replaceAll('{{extra}}', meta.kind === 'post' || meta.kind === 'guide' ? `<meta property="article:published_time" content="${cfg.date || '2026-04-01'}"><meta property="article:author" content="TrekWest Tours"><meta property="article:section" content="Northern Arizona travel">` : '');
 
   const isBlog = path === '/guides/' || meta.kind === 'post' || meta.kind === 'guide';
-  const header = P.header.replace('{{hclass}}', path === '/' ? ' on-hero' : '').replace(/\{\{cur:([^}]+)\}\}/g, (_, k) => {
+  const header = GTM_NOSCRIPT + P.header.replace('{{hclass}}', path === '/' ? ' on-hero' : '').replace(/\{\{cur:([^}]+)\}\}/g, (_, k) => {
     const cur = k === 'group' ? GROUP.has(path) : k === 'private' ? PRIVATE.has(path) && path !== '/private-tour-inquire-about-customized-private-tours/' || false : k === 'blog' ? isBlog : k === path;
     return cur ? ' aria-current="page"' : '';
   });
