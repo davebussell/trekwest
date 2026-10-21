@@ -22,7 +22,7 @@ def table(head, rows):
     return f'<div class="tblwrap"><table class="cmp"><thead><tr>{h}</tr></thead><tbody>{b}</tbody></table></div>'
 
 def related(links):
-    return '<div class="related"><h2>Related guides</h2><ul>' + ''.join(f'<li><a href="{u}">{t}</a></li>' for u, t in links) + '</ul></div>'
+    return '<div class="related"><h2>Related field notes</h2><ul>' + ''.join(f'<li><a href="{u}">{t}</a></li>' for u, t in links) + '</ul></div>'
 
 G = []
 def guide(slug, h1, title, desc, cat, og, ogalt, rank, body):

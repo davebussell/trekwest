@@ -228,11 +228,6 @@
    "desc": "One of the biggest perks of a private tour is rewriting the itinerary. A recent day: Sunset Crater, Wupatki, Cameron Trading Post and the East Rim.",
    "date": "2026-09-28"
   },
-  "/guides/": {
-   "priority": 0.8,
-   "og": "img-2455",
-   "date": "2026-10-20"
-  },
   "/phoenix-to-grand-canyon/": {
    "priority": 0.7,
    "og": "img-3344",
@@ -400,6 +395,11 @@
    "desc": "Phoenix to Sedona is about 115 miles and 2 hours on I-17 and SR-179; Scottsdale adds 15 minutes. Where to stop on the way, how long Sedona needs, and why continuing 45 minutes to Flagstaff opens up the Grand Canyon.",
    "date": "2026-10-20",
    "rank": 35
+  },
+  "/field-notes/": {
+   "priority": 0.8,
+   "og": "img-2455",
+   "date": "2026-10-20"
   }
  },
  "alts": {
