@@ -74,7 +74,15 @@ function render(slug, raw) {
     let date = '', cats = '';
     if (byline) { const parts = byline[1].split('|').map((s) => s.trim()); date = parts[1] || ''; cats = parts[2] || ''; }
     const fig = first.match(/<figure>(.*?)<\/figure>/s);
-    const photo = fig ? `<div class="hero-photo">${fig[1].replace('alt=""', `alt="${esc(meta.h1)}"`).replace(/sizes="[^"]*"/, 'sizes="(min-width:74rem) 70rem, 96vw"').replace('loading="lazy"', 'loading="eager"')}</div>` : '';
+    const alt = (s) => esc((site.alts || {})[s] || meta.h1);
+    const owned = (cfg.photos || []).filter((s) => man[s]);
+    // owner-supplied photos: first is the hero, the rest sit inside the article after the opening paragraphs
+    if (owned.length > 1) {
+      const figs = owned.slice(1).map((s) => `<figure class="inline-photo">${img(s, '(min-width:52rem) 46rem, 92vw').replace('alt=""', `alt="${alt(s)}"`)}</figure>`).join('');
+      let n = 0; rest[0] = rest[0].replace(/<\/p>/g, (m) => (++n === 2 ? m + figs : m));
+      if (n < 2) rest[0] = rest[0].replace(/(<div class="col">)/, `$1${figs}`);
+    }
+    const photo = owned.length ? `<div class="hero-photo">${img(owned[0], '(min-width:74rem) 70rem, 96vw', true).replace('alt=""', `alt="${alt(owned[0])}"`)}</div>` : fig ? `<div class="hero-photo">${fig[1].replace('alt=""', `alt="${esc(meta.h1)}"`).replace(/sizes="[^"]*"/, 'sizes="(min-width:74rem) 70rem, 96vw"').replace('loading="lazy"', 'loading="eager"')}</div>` : '';
     h = `<section class="hero"><div class="in"><p class="crumb"><a href="/field-notes/">Field Notes</a> / From the trail</p><h1>${esc(meta.h1)}</h1><p class="meta">By TrekWest${date ? ' · ' + esc(date) : ''}${cats ? ' · ' + esc(cats) : ''}</p></div></section>${photo}<div class="article">${rest.filter((x) => x.trim()).map((x) => x + '</section>').join('\n')}</div>`;
   } else if (meta.kind === 'guide') {
     const upd = new Date((cfg.date || today) + 'T12:00:00Z').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
@@ -89,7 +97,7 @@ function render(slug, raw) {
 
   // canonical + social
   const canonical = site.url + path;
-  const ogslug = cfg.og || (cfg.strips && cfg.strips[0]) || null;
+  const ogslug = (cfg.photos && cfg.photos[0]) || cfg.og || (cfg.strips && cfg.strips[0]) || null;
   const ogimage = `${site.url}/og/${path === '/' || !ogslug ? 'home' : ogslug}.jpg`;
   const abs = (u) => (u.startsWith('http') ? u : site.url + u);
   const ORG = { '@type': 'TravelAgency', '@id': site.url + '/#business', name: 'TrekWest Arizona Adventure Tours', url: site.url + '/', telephone: '+1-928-814-2432', email: 'info@trekwest.net', logo: site.url + '/icon-192.png', image: site.url + '/og/home.jpg', priceRange: '$$$',
@@ -170,7 +178,11 @@ function recents(selfPath) {
   home.html = home.html.replace(/<div class="plist">[\s\S]*?<\/div>(?=\s*<\/div>\s*<\/section>)/, `<div class="plist">${rows}</div>`);
 }
 const CTA = `<section class="band cta-band" aria-label="Book a tour"><div class="wrap"><div><h2>Want to see it with a local guide?</h2><p>Small groups, no more than 10 guests, park fees and lunch included on our day tours. Book online or ask us anything.</p></div><div class="cta-actions"><a class="btn" href="/book-your-tour/">Book a tour</a><a class="btn-ghost" href="/contact-us/">Ask a question</a></div></div></section>`;
-for (const o of out) { if (NORECENT.has(o.path) || o.noindex) continue; o.html = o.html.replace('</main>', (o.kind === 'post' || o.kind === 'guide' ? CTA : '') + recents(o.path) + '\n</main>'); }
+const IG_URL = 'https://www.instagram.com/trekwesttours';
+const IG_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.6" cy="6.4" r="1.3" fill="currentColor"/></svg>';
+const igReel = (s, cls) => { const m = man[s]; if (!m) return ''; const fs = [...m.files].sort((a, b) => a[0] - b[0]); return `<span class="ig-reel ${cls}"><img src="/img/${fs[0][1]}" width="${m.w}" height="${m.h}" alt="" loading="lazy" decoding="async"><span class="ig-play" aria-hidden="true"></span></span>`; };
+const IG = `<section class="ig-band" aria-label="TrekWest on Instagram"><div class="ig-in"><div class="ig-copy"><p class="ig-handle">${IG_ICON}<span>@trekwesttours</span></p><h2>Dozens of reels from the trail</h2><p>Quick tips, hidden overlooks, road-trip tricks and the places we love around the Grand Canyon, Flagstaff and Sedona. New ones every week, straight from our guides.</p><a class="btn ig-btn" href="${IG_URL}" target="_blank" rel="noopener">Watch on Instagram</a></div><a class="ig-phones" href="${IG_URL}" target="_blank" rel="noopener" aria-label="Open @trekwesttours on Instagram">${igReel('img-2455', 'r1')}${igReel('img-3288', 'r2')}${igReel('557589649-10172586905680327-8570737225099137399-n', 'r3')}</a></div></section>`;
+for (const o of out) { if (NORECENT.has(o.path) || o.noindex) continue; const fn = o.kind === 'post' || o.kind === 'guide'; o.html = o.html.replace('</main>', (fn ? IG + CTA : '') + recents(o.path) + '\n</main>'); }
 
 // ---- guides index: existing trail posts first, then the planning guides ----
 {
