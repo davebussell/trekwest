@@ -139,6 +139,9 @@ function render(slug, raw) {
   const footer = P.footer.replace('{{year}}', year)
     .replace('{{bookbar}}', meta.nobookbar || noindex ? '' : '<a class="bookbar" href="/book-your-tour/">Book a tour</a>')
     .replace('{{extrascripts}}', hasFH ? '<script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes" defer></script>' : '');
+  // site-wide offer bar (site.json "promo"; remove the key to switch it off everywhere)
+  const promo = site.promo ? `<div class="promo" role="region" aria-label="Current offer" data-promo><p><strong>${esc(site.promo.text)}</strong> <a href="${site.promo.link}">${esc(site.promo.linkText)}</a></p><button type="button" aria-label="Dismiss this offer" data-promo-close>&times;</button></div>` : '';
+  if (h.includes('@@PROMO@@')) h = h.replace('@@PROMO@@', promo); else if (promo) h = promo + h;
   let html = head + header + h + footer;
   html = html.replace(/<img\b[^>]*>/g, (tag) => {
     if (!tag.includes('alt=""')) return tag;
