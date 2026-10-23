@@ -76,13 +76,15 @@ function render(slug, raw) {
     const fig = first.match(/<figure>(.*?)<\/figure>/s);
     const alt = (s) => esc((site.alts || {})[s] || meta.h1);
     const owned = (cfg.photos || []).filter((s) => man[s]);
-    // owner-supplied photos: first is the hero, the rest sit inside the article after the opening paragraphs
-    if (owned.length > 1) {
-      const figs = owned.slice(1).map((s) => `<figure class="inline-photo">${img(s, '(min-width:52rem) 46rem, 92vw').replace('alt=""', `alt="${alt(s)}"`)}</figure>`).join('');
+    // owner-supplied photos: two portrait shots sit side by side as the hero; any beyond two go inside the article
+    if (owned.length > 2) {
+      const figs = owned.slice(2).map((s) => `<figure class="inline-photo">${img(s, '(min-width:52rem) 46rem, 92vw').replace('alt=""', `alt="${alt(s)}"`)}</figure>`).join('');
       let n = 0; rest[0] = rest[0].replace(/<\/p>/g, (m) => (++n === 2 ? m + figs : m));
-      if (n < 2) rest[0] = rest[0].replace(/(<div class="col">)/, `$1${figs}`);
     }
-    const photo = owned.length ? `<div class="hero-photo">${img(owned[0], '(min-width:74rem) 70rem, 96vw', true).replace('alt=""', `alt="${alt(owned[0])}"`)}</div>` : fig ? `<div class="hero-photo">${fig[1].replace('alt=""', `alt="${esc(meta.h1)}"`).replace(/sizes="[^"]*"/, 'sizes="(min-width:74rem) 70rem, 96vw"').replace('loading="lazy"', 'loading="eager"')}</div>` : '';
+    const ownedHero = owned.length >= 2
+      ? `<div class="hero-photo pair">${owned.slice(0, 2).map((s, i) => img(s, '(min-width:74rem) 35rem, 48vw', i === 0).replace('alt=""', `alt="${alt(s)}"`)).join('')}</div>`
+      : owned.length ? `<div class="hero-photo${man[owned[0]].h > man[owned[0]].w ? ' tall' : ''}">${img(owned[0], '(min-width:74rem) 70rem, 96vw', true).replace('alt=""', `alt="${alt(owned[0])}"`)}</div>` : '';
+    const photo = ownedHero ? ownedHero : fig ? `<div class="hero-photo">${fig[1].replace('alt=""', `alt="${esc(meta.h1)}"`).replace(/sizes="[^"]*"/, 'sizes="(min-width:74rem) 70rem, 96vw"').replace('loading="lazy"', 'loading="eager"')}</div>` : '';
     h = `<section class="hero"><div class="in"><p class="crumb"><a href="/field-notes/">Field Notes</a> / From the trail</p><h1>${esc(meta.h1)}</h1><p class="meta">By TrekWest${date ? ' · ' + esc(date) : ''}${cats ? ' · ' + esc(cats) : ''}</p></div></section>${photo}<div class="article">${rest.filter((x) => x.trim()).map((x) => x + '</section>').join('\n')}</div>`;
   } else if (meta.kind === 'guide') {
     const upd = new Date((cfg.date || today) + 'T12:00:00Z').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });

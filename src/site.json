@@ -184,7 +184,11 @@
    "priority": 0.5,
    "og": "17fd6c51-5c45-47d7-a462-71fbeca8c748",
    "desc": "Kayaking, pecan orchards, wine, antiquing, Montezuma Castle and more: a stop-by-stop day trip guide to Camp Verde, Arizona.",
-   "date": "2026-10-16"
+   "date": "2026-10-16",
+   "photos": [
+    "trekwest-camp-verde-kayak",
+    "trekwest-verde-valley-mesa"
+   ]
   },
   "/fossil-creek-arizona-waterfall-guide/": {
    "priority": 0.5,
@@ -459,7 +463,9 @@
   "557551875-10172586905520327-6892551929366600103-n": "Hiking boots with traction spikes on snow at the Grand Canyon rim",
   "557674617-10172586905160327-5934717878916674741-n": "Hiker climbing a switchback through red rock in the Grand Canyon",
   "556938485-10172586905480327-7804287271371365140-n": "Backpacker beside the Colorado River at the bottom of the Grand Canyon",
-  "556340864-10172586905545327-1660196064219385385-n": "View through a sandstone overhang to snow-dusted canyon walls"
+  "556340864-10172586905545327-1660196064219385385-n": "View through a sandstone overhang to snow-dusted canyon walls",
+  "trekwest-camp-verde-kayak": "Kayaker paddling the Verde River under an arch of bare cottonwood and willow branches near Camp Verde",
+  "trekwest-verde-valley-mesa": "Sunlit limestone cliffs and mesas above the green Verde Valley under a big Arizona sky"
  },
  "gtmId": "GTM-T5PQS7B8",
  "clarityId": "",

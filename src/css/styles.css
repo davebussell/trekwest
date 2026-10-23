@@ -542,3 +542,7 @@ html { scroll-padding-top: 5.5rem; }
   .ig-phones { height: 16rem; order: -1; }
   .ig-reel { width: 30%; } .ig-reel.r2 { width: 32%; left: 34%; } .ig-reel.r1 { left: 6%; } .ig-reel.r3 { left: 64%; }
 }
+.hero-photo.pair { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(.4rem, 1.2vw, .9rem); }
+.hero-photo.pair img { aspect-ratio: 4 / 5; height: auto; object-fit: cover; }
+.hero-photo.tall img { aspect-ratio: 16 / 10; object-position: 50% 40%; }
+@media (max-width: 40rem) { .hero-photo.pair img { aspect-ratio: 3 / 4; } }

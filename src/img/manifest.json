@@ -1201,5 +1201,31 @@
     "grand-canyon-unsplash-1600.webp"
    ]
   ]
+ },
+ "trekwest-camp-verde-kayak": {
+  "w": 1284,
+  "h": 1844,
+  "files": [
+   [
+    1284,
+    "trekwest-camp-verde-kayak-1600.webp"
+   ]
+  ],
+  "src": "62296ea9-image.jpg"
+ },
+ "trekwest-verde-valley-mesa": {
+  "w": 1932,
+  "h": 2576,
+  "files": [
+   [
+    1600,
+    "trekwest-verde-valley-mesa-1600.webp"
+   ],
+   [
+    800,
+    "trekwest-verde-valley-mesa-800.webp"
+   ]
+  ],
+  "src": "0b8e26e0-image.jpg"
  }
 }
