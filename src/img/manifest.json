@@ -1227,5 +1227,72 @@
    ]
   ],
   "src": "0b8e26e0-image.jpg"
+ },
+ "trekwest-waterholes-alcove": {
+  "w": 1932,
+  "h": 2576,
+  "files": [
+   [
+    1600,
+    "trekwest-waterholes-alcove-1600.webp"
+   ],
+   [
+    800,
+    "trekwest-waterholes-alcove-800.webp"
+   ]
+  ],
+  "src": "d263f441-image.jpg"
+ },
+ "trekwest-waterholes-wave": {
+  "w": 1932,
+  "h": 2576,
+  "files": [
+   [
+    1600,
+    "trekwest-waterholes-wave-1600.webp"
+   ],
+   [
+    800,
+    "trekwest-waterholes-wave-800.webp"
+   ]
+  ],
+  "src": "a2e45951-image.jpg"
+ },
+ "trekwest-old-caves-rim": {
+  "w": 1284,
+  "h": 1679,
+  "files": [
+   [
+    1284,
+    "trekwest-old-caves-rim-1600.webp"
+   ]
+  ],
+  "src": "92e7b71a-image.jpg"
+ },
+ "trekwest-old-caves-cave": {
+  "w": 1284,
+  "h": 2142,
+  "files": [
+   [
+    1284,
+    "trekwest-old-caves-cave-1600.webp"
+   ]
+  ],
+  "src": "748d7657-image.jpg"
+ },
+ "trekwest-fall-aspens-peaks": {
+  "w": 2576,
+  "h": 1932,
+  "files": [
+   [
+    1600,
+    "trekwest-fall-aspens-peaks-1600.webp"
+   ],
+   [
+    800,
+    "trekwest-fall-aspens-peaks-800.webp"
+   ]
+  ],
+  "src": "afd99314-image.jpg"
  }
 }

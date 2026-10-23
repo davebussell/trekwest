@@ -164,15 +164,23 @@
   },
   "/waterholes-canyon-by-kayak-from-lees-ferry/": {
    "priority": 0.5,
-   "og": "556626191-10172586905765327-6579119463710531093-n",
+   "og": "trekwest-waterholes-alcove",
    "desc": "How to reach Waterholes Canyon, a sandstone slot canyon near Lee’s Ferry that you can only get to by kayak, plus safety tips for flash floods.",
-   "date": "2026-10-19"
+   "date": "2026-10-19",
+   "photos": [
+    "trekwest-waterholes-alcove",
+    "trekwest-waterholes-wave"
+   ]
   },
   "/old-caves-crater-flagstaff-volcano-hike/": {
    "priority": 0.5,
-   "og": "img-2353-2",
+   "og": "trekwest-old-caves-rim",
    "desc": "A free 2.5 to 3.5 mile hike up an extinct cinder cone to Sinagua cave dwellings, 15 minutes from downtown Flagstaff. Trail facts and directions.",
-   "date": "2026-10-18"
+   "date": "2026-10-18",
+   "photos": [
+    "trekwest-old-caves-rim",
+    "trekwest-old-caves-cave"
+   ]
   },
   "/sycamore-canyon-parsons-trail-hike/": {
    "priority": 0.5,
@@ -182,7 +190,7 @@
   },
   "/camp-verde-day-trip-from-flagstaff/": {
    "priority": 0.5,
-   "og": "17fd6c51-5c45-47d7-a462-71fbeca8c748",
+   "og": "trekwest-camp-verde-kayak",
    "desc": "Kayaking, pecan orchards, wine, antiquing, Montezuma Castle and more: a stop-by-stop day trip guide to Camp Verde, Arizona.",
    "date": "2026-10-16",
    "photos": [
@@ -210,9 +218,12 @@
   },
   "/best-places-to-see-fall-leaves-in-flagstaff/": {
    "priority": 0.5,
-   "og": "img-7486",
+   "og": "trekwest-fall-aspens-peaks",
    "desc": "Five places to see fall color around Flagstaff, from downtown streets to Snowbowl Road and Schultz Pass, with crowd and driving tips.",
-   "date": "2026-10-09"
+   "date": "2026-10-09",
+   "photos": [
+    "trekwest-fall-aspens-peaks"
+   ]
   },
   "/where-locals-love-to-eat-in-flagstaff-sosta-and-macys/": {
    "priority": 0.5,
@@ -465,7 +476,12 @@
   "556938485-10172586905480327-7804287271371365140-n": "Backpacker beside the Colorado River at the bottom of the Grand Canyon",
   "556340864-10172586905545327-1660196064219385385-n": "View through a sandstone overhang to snow-dusted canyon walls",
   "trekwest-camp-verde-kayak": "Kayaker paddling the Verde River under an arch of bare cottonwood and willow branches near Camp Verde",
-  "trekwest-verde-valley-mesa": "Sunlit limestone cliffs and mesas above the green Verde Valley under a big Arizona sky"
+  "trekwest-verde-valley-mesa": "Sunlit limestone cliffs and mesas above the green Verde Valley under a big Arizona sky",
+  "trekwest-waterholes-alcove": "Hiker walking the sandy floor of Waterholes Canyon toward a glowing orange sandstone alcove",
+  "trekwest-waterholes-wave": "A hiker waving from a ledge deep inside Waterholes Canyon, dwarfed by red sandstone walls",
+  "trekwest-old-caves-rim": "Hiker and dog on the red cinder rim of Old Caves Crater with Mount Elden and Flagstaff behind",
+  "trekwest-old-caves-cave": "Looking out from inside a Sinagua cave room at Old Caves Crater as a hiker steps down into it",
+  "trekwest-fall-aspens-peaks": "Golden aspens and dark pines below the San Francisco Peaks on a clear October day near Flagstaff"
  },
  "gtmId": "GTM-T5PQS7B8",
  "clarityId": "",

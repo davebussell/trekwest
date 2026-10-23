@@ -25,6 +25,7 @@ for it in items:
     if alt: site.setdefault('alts', {})[slug] = alt
     slugs.append(slug)
 site['pages'][page]['photos'] = slugs
+site['pages'][page]['og'] = slugs[0]  # cards, recents and home rows use og
 json.dump(man, open(ROOT / 'src/img/manifest.json', 'w'), indent=1)
 json.dump(site, open(ROOT / 'src/site.json', 'w'), indent=1, ensure_ascii=False)
 # 1200x630 social image from the hero photo
