@@ -1294,5 +1294,95 @@
    ]
   ],
   "src": "afd99314-image.jpg"
+ },
+ "trekwest-wupatki-walls": {
+  "w": 4284,
+  "h": 5712,
+  "files": [
+   [
+    1600,
+    "trekwest-wupatki-walls-1600.webp"
+   ],
+   [
+    800,
+    "trekwest-wupatki-walls-800.webp"
+   ]
+  ],
+  "src": "IMG_2727.jpg"
+ },
+ "trekwest-wupatki-boulder": {
+  "w": 4284,
+  "h": 5712,
+  "files": [
+   [
+    1600,
+    "trekwest-wupatki-boulder-1600.webp"
+   ],
+   [
+    800,
+    "trekwest-wupatki-boulder-800.webp"
+   ]
+  ],
+  "src": "IMG_2695.jpg"
+ },
+ "trekwest-wupatki-doorway": {
+  "w": 4284,
+  "h": 5712,
+  "files": [
+   [
+    1600,
+    "trekwest-wupatki-doorway-1600.webp"
+   ],
+   [
+    800,
+    "trekwest-wupatki-doorway-800.webp"
+   ]
+  ],
+  "src": "IMG_2716.jpg"
+ },
+ "trekwest-wupatki-overhang": {
+  "w": 4284,
+  "h": 5712,
+  "files": [
+   [
+    1600,
+    "trekwest-wupatki-overhang-1600.webp"
+   ],
+   [
+    800,
+    "trekwest-wupatki-overhang-800.webp"
+   ]
+  ],
+  "src": "IMG_2719.jpg"
+ },
+ "trekwest-wupatki-view": {
+  "w": 3024,
+  "h": 4032,
+  "files": [
+   [
+    1600,
+    "trekwest-wupatki-view-1600.webp"
+   ],
+   [
+    800,
+    "trekwest-wupatki-view-800.webp"
+   ]
+  ],
+  "src": "IMG_2729.jpg"
+ },
+ "trekwest-wupatki-moonrise": {
+  "w": 4032,
+  "h": 3024,
+  "files": [
+   [
+    1600,
+    "trekwest-wupatki-moonrise-1600.webp"
+   ],
+   [
+    800,
+    "trekwest-wupatki-moonrise-800.webp"
+   ]
+  ],
+  "src": "IMG_2730.jpg"
  }
 }

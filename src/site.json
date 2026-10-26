@@ -239,9 +239,14 @@
   },
   "/private-grand-canyon-tour-east-rim-volcanoes-and-wupatki/": {
    "priority": 0.5,
-   "og": "img-2384",
+   "og": "trekwest-wupatki-walls",
    "desc": "One of the biggest perks of a private tour is rewriting the itinerary. A recent day: Sunset Crater, Wupatki, Cameron Trading Post and the East Rim.",
-   "date": "2026-09-28"
+   "date": "2026-09-28",
+   "photos": [
+    "trekwest-wupatki-walls",
+    "trekwest-wupatki-boulder"
+   ],
+   "ogalt": "Red sandstone walls of an 800-year-old pueblo against a blue sky at Wupatki National Monument"
   },
   "/phoenix-to-grand-canyon/": {
    "priority": 0.7,
@@ -437,7 +442,7 @@
   "img-3288": "Smiling guest in a helmet with a rental e-bike at the Grand Canyon rim",
   "panograndcanyon": "Two guests at a Grand Canyon overlook watching the Colorado River in evening light",
   "img-1295": "Family pointing out the view with their TrekWest guide at a Grand Canyon overlook",
-  "img-2384": "Family of five posing on a rocky Grand Canyon overlook",
+  "img-2384": "A family of guests on a rocky point above the Grand Canyon on the East Rim",
   "img-8449-2": "Guests looking out from a Grand Canyon viewpoint under dramatic storm clouds",
   "img-1468": "Smiling TrekWest guide on a Grand Canyon rim outcrop with a wide canyon view",
   "van2": "TrekWest tour van parked at a Grand Canyon viewpoint while guests look out",
@@ -481,7 +486,13 @@
   "trekwest-waterholes-wave": "A hiker waving from a ledge deep inside Waterholes Canyon, dwarfed by red sandstone walls",
   "trekwest-old-caves-rim": "Hiker and dog on the red cinder rim of Old Caves Crater with Mount Elden and Flagstaff behind",
   "trekwest-old-caves-cave": "Looking out from inside a Sinagua cave room at Old Caves Crater as a hiker steps down into it",
-  "trekwest-fall-aspens-peaks": "Golden aspens and dark pines below the San Francisco Peaks on a clear October day near Flagstaff"
+  "trekwest-fall-aspens-peaks": "Golden aspens and dark pines below the San Francisco Peaks on a clear October day near Flagstaff",
+  "trekwest-wupatki-walls": "Red sandstone walls of an 800-year-old pueblo against a blue sky at Wupatki National Monument",
+  "trekwest-wupatki-boulder": "Ancestral Puebloan stonework built around a huge sandstone boulder at Wupatki National Monument",
+  "trekwest-wupatki-doorway": "A doorway in a pueblo wall framing the sky at Wupatki National Monument",
+  "trekwest-wupatki-overhang": "Stacked-stone walls tucked under a sandstone ledge at Wupatki, with the open desert beyond",
+  "trekwest-wupatki-view": "Late-afternoon view over the Wupatki ruins and the high desert north-east of Flagstaff",
+  "trekwest-wupatki-moonrise": "The moon rising over the grasslands near Wupatki National Monument at dusk"
  },
  "gtmId": "GTM-T5PQS7B8",
  "clarityId": "",

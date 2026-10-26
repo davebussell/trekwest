@@ -53,6 +53,12 @@ let warnCount = 0;
 function render(slug, raw) {
   const mm = raw.match(/^<!--meta (.*?) -->\n/s);
   const meta = JSON.parse(mm[1]); let body = raw.slice(mm[0].length);
+  // @@PHOTOS:slug[,slug,slug]@@ in a fragment places photos inside the text: one = full-width figure, two or three = a row (alts from site.alts)
+  body = body.replace(/@@PHOTOS:([\w,-]+)@@/g, (_, list) => {
+    const ss = list.split(','); const alt = (s) => esc((site.alts || {})[s] || '');
+    if (ss.length === 1) return `<figure class="inline-photo">${img(ss[0], '(min-width:52rem) 46rem, 92vw').replace('alt=""', `alt="${alt(ss[0])}"`)}</figure>`;
+    return `<div class="photo-row n${ss.length}">${ss.map((s) => img(s, `(min-width:52rem) ${Math.round(46 / ss.length)}rem, 46vw`).replace('alt=""', `alt="${alt(s)}"`)).join('')}</div>`;
+  });
   const path = slug === 'home' ? '/' : `/${slug}/`;
   const cfg = site.pages[path] || {};
   const BRAND = 'TrekWest Arizona Adventure Tours';
