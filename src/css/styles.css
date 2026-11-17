@@ -427,6 +427,9 @@ p.stop strong { font-weight: 700; }
 @media (max-width: 62rem) { .nav .soc { margin: .6rem 0 0; gap: 1.4rem; } .nav .soc a { padding: .6rem 0; border: 0; } .nav .soc span { position: static; width: auto; height: auto; clip: auto; font-size: .95rem; } }
 @media (min-width: 62.01rem) and (max-width: 80rem) { .nav .soc { display: none; } }
 .nav .btn { white-space: nowrap; }
+/* header "Book Now" CTA: logo blue */
+.nav .btn, .on-hero .nav .btn { background: var(--blue); color: #fff; }
+.nav .btn:hover, .on-hero .nav .btn:hover { background: var(--blue-deep); color: #fff; }
 /* recent posts strip */
 .recents { padding: clamp(2rem, 5vw, 3.5rem) 0; border-top: 1px solid var(--line); }
 .recents .wrap > h2 { margin-top: 0; }
